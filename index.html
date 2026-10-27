@@ -4,9 +4,9 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Mahfozur Rahman | Senior Full-Stack .NET & Angular Developer | Enterprise SaaS Architect</title>
-  <meta name="description" content="Portfolio of Mahfozur Rahman: Senior Full-Stack Software Developer with 6+ years building enterprise SaaS platforms with C#, ASP.NET Core (.NET 8/6), Angular, SQL Server, PostgreSQL and Microsoft Azure. Microsoft Certified (MCSD).">
+  <meta name="description" content="Portfolio of Mahfozur Rahman: Senior Full-Stack Software Developer with 6+ years building enterprise SaaS platforms with C#, ASP.NET Core (.NET 8/6), Angular, SQL Server, PostgreSQL and Microsoft Azure, plus agentic AI development with Claude Code and Google Antigravity. Microsoft Certified (MCSD).">
   <meta name="author" content="Mahfozur Rahman">
-  <meta name="keywords" content="Mahfozur Rahman, Full-Stack Developer, .NET Developer, ASP.NET Core, Angular, C#, Azure, SQL Server, SaaS Architect, CQRS, Docker, Bangladesh, Remote Developer">
+  <meta name="keywords" content="Mahfozur Rahman, Full-Stack Developer, .NET Developer, ASP.NET Core, Angular, C#, Azure, SQL Server, SaaS Architect, CQRS, Docker, Agentic AI, Claude Code, Google Antigravity, LLM Integration, Bangladesh, Remote Developer">
   <link rel="canonical" href="https://mahfozmt.github.io/">
 
   <!-- Open Graph / Facebook -->
@@ -48,7 +48,7 @@
       "https://www.linkedin.com/in/mahfozmt"
     ],
     "knowsAbout": [
-      ".NET", "C#", "ASP.NET Core", "Angular", "TypeScript", "SQL Server", "Microsoft Azure", "Docker", "CQRS", "PostgreSQL", "Enterprise Architecture"
+      ".NET", "C#", "ASP.NET Core", "Angular", "TypeScript", "SQL Server", "Microsoft Azure", "Docker", "CQRS", "PostgreSQL", "Enterprise Architecture", "Agentic AI", "Claude Code", "Google Antigravity", "LLM Integration"
     ]
   }
   </script>
@@ -1025,6 +1025,17 @@
       transition: all 0.25s ease;
       position: relative;
     }
+    .ai-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    @media (max-width: 900px) {
+      .ai-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    .skill-card.skill-card-wide {
+      grid-column: 1 / -1;
+    }
     .os-card.featured {
       grid-column: 1 / -1;
       border-color: rgba(56, 189, 248, 0.4);
@@ -1465,6 +1476,7 @@
       <!-- Desktop Navigation Links -->
       <nav class="desktop-nav" aria-label="Primary navigation">
         <a href="#work">Work</a>
+        <a href="#ai">AI</a>
         <a href="#experience">Experience</a>
         <a href="#open-source">Open Source</a>
         <a href="#skills">Skills</a>
@@ -1499,6 +1511,7 @@
     <!-- Mobile Drawer Navigation -->
     <div id="mobileDrawer" class="mobile-nav-drawer" aria-label="Mobile navigation">
       <a href="#work" class="mobile-link">Featured Work</a>
+      <a href="#ai" class="mobile-link">Agentic AI</a>
       <a href="#experience" class="mobile-link">Work Experience</a>
       <a href="#open-source" class="mobile-link">Open Source</a>
       <a href="#skills" class="mobile-link">Technical Skills</a>
@@ -1543,6 +1556,7 @@
               <strong>.NET 8 / ASP.NET Core, C#, Angular, SQL Server, and Microsoft Azure</strong>. 
               Currently driving full-stack features, security engineering (2FA, HIPAA compliance), and CI/CD pipelines 
               for <strong>BizTRAQ</strong>, serving US enterprise clients across healthcare, logistics, and case management.
+              I work daily with <strong>agentic AI tools (Claude Code, Google Antigravity)</strong> and build LLM-powered features such as AI document summarization.
             </p>
 
             <div class="hero-actions">
@@ -1594,6 +1608,7 @@
                   <span class="chip">SQL Server</span>
                   <span class="chip">Azure</span>
                   <span class="chip">CQRS</span>
+                  <span class="chip">Agentic AI</span>
                 </div>
               </div>
             </div>
@@ -1689,6 +1704,7 @@
                   <li><strong>Document Processing Engine:</strong> Implemented a high-performance .NET 8 document conversion and OCR pipeline, containerized using Docker for headless cloud execution.</li>
                   <li><strong>Automated DevOps:</strong> Created GitHub Actions CI/CD workflows for seamless deployment to Azure App Service using Azure OpenID Connect (OIDC) token federation.</li>
                   <li><strong>Data-Dense Front End:</strong> Built responsive, accessible Angular UIs leveraging Angular Material, Kendo UI, and virtualized SlickGrid for ultra-fast manipulation of massive record sets.</li>
+                  <li><strong>AI Document Chat:</strong> Built an LLM-powered assistant for document summarization and Q&amp;A, from the Angular chat panel to a permission-checked, tenant-scoped .NET API that calls an LLM agent service.</li>
                 </ul>
               </div>
             </div>
@@ -1899,6 +1915,69 @@
               <span class="chip">ASP.NET Web Forms</span>
             </div>
           </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- AGENTIC AI -->
+    <section id="ai" class="section" aria-labelledby="ai-heading">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-eyebrow">Agentic AI Developer</span>
+          <h2 id="ai-heading" class="section-title">AI-Powered Engineering</h2>
+          <p class="section-desc">How I ship with AI coding agents every day, and the LLM features I build into production SaaS.</p>
+        </div>
+
+        <div class="os-grid ai-grid">
+
+          <div class="os-card">
+            <div>
+              <div class="os-card-header">
+                <span class="os-card-title">Agent-Driven Development</span>
+                <span class="badge">Daily Workflow</span>
+              </div>
+              <p class="os-card-desc" style="margin-top: 12px;">
+                I use Claude Code and Google Antigravity every day at COBAIT and LivingHub. AI agents plan, build, refactor, and test .NET and Angular features, and draft code reviews, implementation plans, and documentation. Every change is reviewed and verified by me before release.
+              </p>
+            </div>
+            <div class="chips-group">
+              <span class="chip">Claude Code</span>
+              <span class="chip">Google Antigravity</span>
+              <span class="chip">Agentic Coding</span>
+              <span class="chip">Prompt Engineering</span>
+              <span class="chip">AI-Assisted Testing</span>
+            </div>
+          </div>
+
+          <div class="os-card">
+            <div>
+              <div class="os-card-header">
+                <span class="os-card-title">BizTRAQ AI Document Chat</span>
+                <span class="badge">LLM Integration</span>
+              </div>
+              <p class="os-card-desc" style="margin-top: 12px;">
+                An LLM-powered assistant for document summarization and Q&amp;A that I built end to end. The Angular chat panel handles sessions, suggested prompts, and an OCR step for scanned files. The .NET Web API checks BizDRIVE permissions, keeps every request inside one customer's data, and forwards the document to an LLM agent service.
+              </p>
+              <div class="architecture-box" style="margin-top: 16px;">
+                <div class="arch-label">Request Flow</div>
+                <div class="arch-flow">
+                  <span class="arch-node">Angular Chat Panel</span>
+                  <span class="arch-arrow">➔</span>
+                  <span class="arch-node">.NET Web API (Permission + Tenant Check)</span>
+                  <span class="arch-arrow">➔</span>
+                  <span class="arch-node">LLM Agent Service (Azure Container Apps)</span>
+                </div>
+              </div>
+            </div>
+            <div class="chips-group">
+              <span class="chip">LLM API Integration</span>
+              <span class="chip">Angular</span>
+              <span class="chip">ASP.NET Web API</span>
+              <span class="chip">Azure Container Apps</span>
+              <span class="chip">OCR</span>
+            </div>
+          </div>
 
         </div>
       </div>
@@ -2212,6 +2291,24 @@
               <span class="chip">Twilio SMS API</span>
               <span class="chip">Mailgun Email</span>
               <span class="chip">REST Integrations</span>
+            </div>
+          </div>
+
+          <!-- AI & Agentic -->
+          <div class="skill-card skill-card-wide">
+            <div class="skill-card-head">
+              <div class="skill-card-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l2.4 7.2L22 12l-7.6 2.8L12 22l-2.4-7.2L2 12l7.6-2.8z"/></svg>
+              </div>
+              <h3 class="skill-card-title">AI &amp; Agentic Development</h3>
+            </div>
+            <div class="chips-group">
+              <span class="chip">Claude Code</span>
+              <span class="chip">Google Antigravity</span>
+              <span class="chip">Agentic Coding Workflows</span>
+              <span class="chip">LLM API Integration</span>
+              <span class="chip">Prompt Engineering</span>
+              <span class="chip">AI-Assisted Code Review &amp; Testing</span>
             </div>
           </div>
 
