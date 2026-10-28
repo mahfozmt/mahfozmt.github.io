@@ -1172,6 +1172,24 @@
       width: 24px;
       height: 24px;
     }
+    .cred-icon-wrap.cred-badge {
+      width: 72px;
+      height: 72px;
+      background: transparent;
+    }
+    .cred-icon-wrap.cred-badge img {
+      width: 72px;
+      height: 72px;
+      display: block;
+    }
+    .cred-verify {
+      color: var(--primary);
+      font-weight: 600;
+      text-decoration: none;
+    }
+    .cred-verify:hover {
+      text-decoration: underline;
+    }
     .cred-details {
       display: flex;
       flex-direction: column;
@@ -2335,13 +2353,13 @@
 
           <!-- MCP -->
           <div class="cred-card">
-            <div class="cred-icon-wrap">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>
-            </div>
+            <a class="cred-icon-wrap cred-badge" href="https://www.credly.com/badges/5edb0686-f2eb-4737-a95d-3039670edd7a" target="_blank" rel="noopener" aria-label="Verify Microsoft Exam 486 badge on Credly">
+              <img src="ms-exam-486-badge.png" alt="Microsoft Exam passed badge: Developing ASP.NET MVC Web Applications" width="72" height="72" loading="lazy">
+            </a>
             <div class="cred-details">
               <div class="cred-name">Microsoft Certified Professional (MCP)</div>
               <div class="cred-org">Microsoft Corporation</div>
-              <div class="cred-desc">Passed Exam 70-486: Developing ASP.NET MVC Web Applications (score 933) · Verification MCID: 990525782</div>
+              <div class="cred-desc">Passed Exam 70-486: Developing ASP.NET MVC Web Applications (score 933) · Verification MCID: 990525782 · <a class="cred-verify" href="https://www.credly.com/badges/5edb0686-f2eb-4737-a95d-3039670edd7a" target="_blank" rel="noopener">Verify on Credly ↗</a></div>
               <div class="cred-year">Issued: November 2020</div>
             </div>
           </div>
