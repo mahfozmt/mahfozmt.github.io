@@ -300,7 +300,8 @@ section.section {
 }
 @media (max-width: 900px) {
   .os-grid {
-    grid-template-columns: 1fr;
+    /* minmax(0, 1fr) lets a long repo name shrink the column instead of widening the page. */
+    grid-template-columns: minmax(0, 1fr);
   }
 }
 .os-card {
@@ -339,6 +340,7 @@ section.section {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
+  flex-wrap: wrap;
   gap: 12px;
 }
 .os-card-title {
@@ -348,6 +350,8 @@ section.section {
   display: flex;
   align-items: center;
   gap: 8px;
+  min-width: 0;
+  overflow-wrap: anywhere;
 }
 .os-card:hover .os-card-title {
   color: var(--primary);
@@ -364,6 +368,16 @@ section.section {
   }
   .hero-actions .btn {
     width: 100%;
+  }
+  .os-card {
+    padding: 20px;
+  }
+  .os-card-title {
+    font-size: 1rem;
+  }
+  /* Keeps a long repo name on one line on phones. */
+  .os-card-ext {
+    display: none;
   }
 }
 
