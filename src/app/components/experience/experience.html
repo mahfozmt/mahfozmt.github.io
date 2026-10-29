@@ -1,0 +1,31 @@
+<section id="experience" class="section" [attr.aria-labelledby]="heading.headingId">
+  <div class="container">
+    <app-section-header [heading]="heading" />
+
+    <div class="timeline-container">
+      @for (entry of entries; track entry.id) {
+        <div class="timeline-item" [class.current]="entry.current">
+          <div class="timeline-marker" aria-hidden="true"></div>
+          <div class="timeline-card">
+            <div class="timeline-top">
+              <div>
+                <h3 class="role-title">{{ entry.title }}</h3>
+                <div class="company-name">
+                  {{ entry.company }}
+                  @if (entry.employmentType) {
+                    · {{ entry.employmentType }}
+                  }
+                </div>
+              </div>
+              <div class="timeline-date">{{ entry.dates }} · {{ entry.location }}</div>
+            </div>
+            <div class="timeline-body">
+              <p [innerHTML]="entry.summaryHtml"></p>
+              <app-chip-list [chips]="entry.chips" />
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</section>

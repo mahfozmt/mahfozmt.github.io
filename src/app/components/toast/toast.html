@@ -1,0 +1,8 @@
+<div class="toast-container" aria-live="polite">
+  <div id="toastNotification" class="toast" [class.show]="toast.visible()">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <polyline points="20 6 9 17 4 12" />
+    </svg>
+    <span id="toastMessage">{{ toast.message() }}</span>
+  </div>
+</div>

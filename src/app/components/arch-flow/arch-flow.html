@@ -1,0 +1,9 @@
+<div class="arch-label">{{ flow().label }}</div>
+<div class="arch-flow">
+  @for (node of flow().nodes; track node; let last = $last) {
+    <span class="arch-node">{{ node }}</span>
+    @if (!last) {
+      <span class="arch-arrow">➔</span>
+    }
+  }
+</div>

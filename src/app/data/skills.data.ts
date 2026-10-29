@@ -1,0 +1,122 @@
+import { SectionHeading } from '../models/section-heading.model';
+import { SkillGroup } from '../models/skill.model';
+
+export const SKILLS_SECTION: SectionHeading = {
+  headingId: 'skills-heading',
+  eyebrow: 'Technical Mastery',
+  title: 'Skills & Technology Stack',
+  description:
+    'Battle-tested tools, languages, and frameworks applied in enterprise production systems every week.',
+};
+
+export const SKILL_GROUPS: readonly SkillGroup[] = [
+  {
+    id: 'back-end-engineering',
+    title: 'Back-End Engineering',
+    icon: 'server',
+    chips: [
+      'C#',
+      '.NET 8 / 6',
+      'ASP.NET Core',
+      'Web API (REST)',
+      'EF Core',
+      'ADO.NET',
+      'Hangfire',
+      'SignalR',
+      'Windows Services',
+      'LINQ',
+      '.NET Framework',
+      'ASP.NET MVC',
+      'Web Forms',
+      'Windows Forms',
+      'WPF',
+    ],
+  },
+  {
+    id: 'front-end-development',
+    title: 'Front-End Development',
+    icon: 'layers',
+    chips: [
+      'Angular',
+      'TypeScript',
+      'RxJS',
+      'Angular Material',
+      'Kendo UI',
+      'SlickGrid',
+      'HTML5 / SCSS',
+      'Responsive Web',
+    ],
+  },
+  {
+    id: 'databases-and-data',
+    title: 'Databases & Data',
+    icon: 'database',
+    chips: [
+      'Microsoft SQL Server',
+      'T-SQL',
+      'PostgreSQL',
+      'Stored Procedures',
+      'Query Execution Tuning',
+      'Index Optimization',
+      'SQL Server Agent',
+      'Crystal Reports / RDLC',
+      'Database Migrations',
+    ],
+  },
+  {
+    id: 'cloud-and-devops',
+    title: 'Cloud & DevOps',
+    icon: 'cloud',
+    chips: [
+      'Azure App Service',
+      'Azure Blob Storage',
+      'GitHub Actions',
+      'Docker & Compose',
+      'Nginx Reverse Proxy',
+      'Linux & Ubuntu',
+      'IIS Web Server',
+      'Azure OIDC',
+    ],
+  },
+  {
+    id: 'architecture-and-security',
+    title: 'Architecture & Security',
+    icon: 'shield',
+    chips: [
+      'Multi-Tenant SaaS',
+      'CQRS Pattern',
+      'Clean Architecture',
+      'Two-Factor Auth (2FA)',
+      'HIPAA Compliance',
+      'RBAC Permissions',
+      'Audit Logging',
+    ],
+  },
+  {
+    id: 'third-party-integrations',
+    title: 'Third-Party Integrations',
+    icon: 'smartphone',
+    chips: [
+      'Flutter (WebView Wrapper)',
+      'Google Maps API',
+      'Firebase FCM Push',
+      'Twilio SMS API',
+      'Mailgun Email',
+      'REST Integrations',
+    ],
+  },
+  {
+    id: 'ai-assisted-development',
+    title: 'AI-Assisted Development',
+    icon: 'sparkles',
+    chips: [
+      'Claude Code',
+      'Google Antigravity',
+      'Human-Reviewed Agentic Coding',
+      'LLM API Integration',
+      'Prompt Engineering',
+      'AI-Assisted Code Review & Testing',
+    ],
+    wide: true,
+  },
+];

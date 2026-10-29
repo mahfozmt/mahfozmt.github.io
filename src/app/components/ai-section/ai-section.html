@@ -1,0 +1,23 @@
+<section id="ai" class="section" [attr.aria-labelledby]="heading.headingId">
+  <div class="container">
+    <app-section-header [heading]="heading" />
+
+    <div class="os-grid ai-grid">
+      @for (card of cards; track card.title) {
+        <div class="os-card">
+          <div>
+            <div class="os-card-header">
+              <span class="os-card-title">{{ card.title }}</span>
+              <span class="badge">{{ card.badge }}</span>
+            </div>
+            <p class="os-card-desc" style="margin-top: 12px">{{ card.description }}</p>
+            @if (card.flow; as flow) {
+              <app-arch-flow style="margin-top: 16px" [flow]="flow" />
+            }
+          </div>
+          <app-chip-list [chips]="card.chips" />
+        </div>
+      }
+    </div>
+  </div>
+</section>

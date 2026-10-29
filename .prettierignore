@@ -1,0 +1,6 @@
+dist
+.angular
+node_modules
+package-lock.json
+# Copied verbatim from the reviewed static page (SEO tags, JSON-LD, favicon).
+src/index.html

@@ -1,0 +1,27 @@
+:host {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px;
+  background: var(--chip-bg);
+  border: 1px solid var(--chip-border);
+  border-radius: var(--radius-full);
+  font-size: 0.825rem;
+  font-weight: 500;
+  color: var(--chip-text);
+  font-family: var(--font-mono);
+  transition: all 0.2s ease;
+}
+.chip:hover {
+  border-color: var(--primary);
+  transform: translateY(-1px);
+}
+.chip svg {
+  width: 14px;
+  height: 14px;
+}

@@ -1,0 +1,177 @@
+:host {
+  display: contents;
+}
+
+/* ----------------------------------------------------
+   HEADER & NAVIGATION
+   ---------------------------------------------------- */
+header.top-nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--nav-bg);
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  border-bottom: 1px solid var(--border);
+  transition:
+    border-color 0.3s ease,
+    background 0.3s ease;
+}
+
+.nav-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 72px;
+}
+
+.brand-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-weight: 800;
+  font-size: 1.15rem;
+  letter-spacing: -0.02em;
+  color: var(--text);
+}
+.brand-logo:hover {
+  color: var(--text);
+}
+.brand-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-md);
+  background: var(--accent-gradient);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: 800;
+  font-size: 1rem;
+  box-shadow: 0 4px 12px var(--primary-glow);
+  flex-shrink: 0;
+}
+.brand-title {
+  display: flex;
+  flex-direction: column;
+}
+.brand-title span.name {
+  font-size: 1.05rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+.brand-title span.title {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  letter-spacing: 0.02em;
+}
+
+nav.desktop-nav {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+nav.desktop-nav a {
+  color: var(--text-muted);
+  font-size: 0.925rem;
+  font-weight: 500;
+  padding: 8px 14px;
+  border-radius: var(--radius-sm);
+  transition: all 0.2s ease;
+}
+nav.desktop-nav a:hover,
+nav.desktop-nav a.active {
+  color: var(--text);
+  background: var(--surface-hover);
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.btn-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.btn-icon:hover {
+  background: var(--surface-hover);
+  border-color: var(--primary);
+  transform: translateY(-1px);
+}
+.btn-icon svg {
+  width: 20px;
+  height: 20px;
+}
+
+.mobile-menu-toggle {
+  display: none;
+}
+
+/* Mobile Drawer */
+.mobile-nav-drawer {
+  display: none;
+  position: fixed;
+  top: 72px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--bg);
+  border-top: 1px solid var(--border);
+  padding: 24px;
+  flex-direction: column;
+  gap: 16px;
+  z-index: 99;
+  overflow-y: auto;
+  /*
+   * The drawer lives inside <header>, whose backdrop-filter makes the header (not the viewport) the
+   * containing block for fixed children, so `bottom: 0` alone collapses the panel to a sliver.
+   * An explicit height gives the full-screen panel back.
+   */
+  height: calc(100vh - 72px);
+  height: calc(100dvh - 72px);
+}
+.mobile-nav-drawer.open {
+  display: flex;
+}
+.mobile-nav-drawer a:not(.btn) {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--text);
+  padding: 12px 16px;
+  border-radius: var(--radius-md);
+  background: var(--surface);
+  border: 1px solid var(--border);
+}
+.mobile-nav-drawer .mobile-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 12px;
+}
+
+/* The download button inside the drawer is a .btn, so it keeps its own button styling. */
+.mobile-nav-drawer .btn {
+  padding: 12px 16px;
+  font-size: 1.2rem;
+}
+
+@media (max-width: 768px) {
+  nav.desktop-nav {
+    display: none;
+  }
+  .mobile-menu-toggle {
+    display: inline-flex;
+  }
+}

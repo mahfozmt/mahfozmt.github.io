@@ -1,0 +1,82 @@
+<section id="work" class="section" [attr.aria-labelledby]="heading.headingId">
+  <div class="container">
+    <app-section-header [heading]="heading" />
+
+    <!-- Filter Controls -->
+    <div class="work-filter-bar" role="tablist" aria-label="Filter case studies">
+      @for (filter of filters; track filter.id) {
+        <button
+          class="filter-btn"
+          type="button"
+          role="tab"
+          [class.active]="activeFilter() === filter.id"
+          [attr.data-filter]="filter.id"
+          [attr.aria-selected]="activeFilter() === filter.id"
+          (click)="select(filter.id)"
+        >
+          {{ filter.label }}
+        </button>
+      }
+    </div>
+
+    <div class="cases-list">
+      @for (study of visibleCases(); track study.id) {
+        <article class="case-card" [attr.data-category]="study.categories.join(' ')">
+          <div class="case-header">
+            <div class="case-title-group">
+              <h3>
+                <span>{{ study.title }}</span>
+              </h3>
+              <div class="case-meta">
+                <span><strong>Company:</strong> {{ study.company }}</span>
+                <span>·</span>
+                <span>{{ study.period }}</span>
+                <span>·</span>
+                <a [href]="study.site.url" target="_blank" rel="noopener">
+                  {{ study.site.label }}
+                  <svg
+                    width="14"
+                    height="14"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                    <polyline points="15 3 21 3 21 9" />
+                    <line x1="10" y1="14" x2="21" y2="3" />
+                  </svg>
+                </a>
+              </div>
+            </div>
+            <span class="badge">{{ study.badge }}</span>
+          </div>
+
+          <div class="case-body-grid">
+            <div class="case-col">
+              <h4>Product Scope &amp; Mission</h4>
+              <p>{{ study.scope }}</p>
+            </div>
+
+            <div class="case-col">
+              <h4>Key Engineering Contributions</h4>
+              <ul class="case-highlights">
+                @for (highlight of study.highlights; track highlight.label) {
+                  <li>
+                    <strong>{{ highlight.label }}:</strong> {{ highlight.text }}
+                  </li>
+                }
+              </ul>
+            </div>
+          </div>
+
+          @if (study.architecture; as flow) {
+            <app-arch-flow [flow]="flow" />
+          }
+
+          <app-chip-list [chips]="study.chips" />
+        </article>
+      }
+    </div>
+  </div>
+</section>
