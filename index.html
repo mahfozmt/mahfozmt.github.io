@@ -1645,7 +1645,7 @@
           <div class="stat-card">
             <div class="stat-number">4<span class="highlight">+</span></div>
             <div class="stat-label">Major Platforms</div>
-            <div class="stat-sub">Architected & shipped to production</div>
+            <div class="stat-sub">Built and supported in production</div>
           </div>
 
           <div class="stat-card">
@@ -1717,12 +1717,14 @@
               <div class="case-col">
                 <h4>Key Engineering Contributions</h4>
                 <ul class="case-highlights">
-                  <li><strong>Core Cloud Architecture:</strong> Engineered robust .NET back-end microservices and RESTful APIs powering BizDRIVE cloud storage, BizTRAQ Libraries, and dynamic workflow engines.</li>
-                  <li><strong>Security &amp; 2FA Engineering:</strong> Architected two-factor authentication (SMS/Email OTP) featuring hashed verification codes, auto-expiry, brute-force lockout, and tenant-specific security policies.</li>
-                  <li><strong>Document Processing Engine:</strong> Implemented a high-performance .NET 8 document conversion and OCR pipeline, containerized using Docker for headless cloud execution.</li>
-                  <li><strong>Automated DevOps:</strong> Created GitHub Actions CI/CD workflows for seamless deployment to Azure App Service using Azure OpenID Connect (OIDC) token federation.</li>
-                  <li><strong>Data-Dense Front End:</strong> Built responsive, accessible Angular UIs leveraging Angular Material, Kendo UI, and virtualized SlickGrid for ultra-fast manipulation of massive record sets.</li>
+                  <li><strong>Record Grids:</strong> Built Angular record grids with SlickGrid and Kendo UI: server-side sorting, filtering and pagination, inline and bulk editing, and admin-configurable columns.</li>
+                  <li><strong>Search Refactor:</strong> Split the monolithic event search code into separate query, filter, sort, and permission services (about 1,000 lines moved out of one class) and tuned grid search and row-count queries.</li>
+                  <li><strong>Security &amp; 2FA Engineering:</strong> Built two-factor authentication (SMS/Email) with hashed six-digit codes, expiry, a five-attempt lockout, a 30-second resend cooldown, per-tenant settings, and a shared-link bypass.</li>
+                  <li><strong>Document Processing Service:</strong> Built the .NET 8 Blazor document service (Telerik, SuperDoc) for DOCX and XLSX editing, PPTX viewing, legacy Office formats, Save as PDF, and OCR, containerized with Docker.</li>
+                  <li><strong>Automated DevOps:</strong> Created GitHub Actions CI/CD workflows that deploy the document service to Azure using OpenID Connect (OIDC) token federation.</li>
+                  <li><strong>BizDRIVE Documents:</strong> Built permission-aware editing, versioning with configurable retention, view-only locking, external sharing, and DOCX redlining with author attribution and real-time presence for multiple editors.</li>
                   <li><strong>AI Document Chat:</strong> Built an LLM-powered assistant for document summarization and Q&amp;A, from the Angular chat panel to a permission-checked, tenant-scoped .NET API that calls an LLM agent service.</li>
+                  <li><strong>Production Stability:</strong> Fixed an intermittent crash caused by broken pooled database connections: removed a shared DbContext, added safe rollbacks and connection recovery, and moved large note content to file storage.</li>
                 </ul>
               </div>
             </div>
@@ -1731,7 +1733,7 @@
             <div class="architecture-box">
               <div class="arch-label">System Architecture &amp; Data Pipeline</div>
               <div class="arch-flow">
-                <span class="arch-node">Angular 16+ SPA</span>
+                <span class="arch-node">Angular SPA</span>
                 <span class="arch-arrow">➔</span>
                 <span class="arch-node">Azure App Service / ASP.NET Web API</span>
                 <span class="arch-arrow">➔</span>
@@ -1739,7 +1741,7 @@
                 <span class="arch-arrow">➔</span>
                 <span class="arch-node">Azure Blob Storage</span>
                 <span class="arch-arrow">➔</span>
-                <span class="arch-node">Dockerized .NET 8 Document OCR Service</span>
+                <span class="arch-node">Dockerized .NET 8 Blazor Document Service</span>
               </div>
             </div>
 
@@ -1777,14 +1779,14 @@
                   </a>
                 </div>
               </div>
-              <span class="badge">Lead Architect · CQRS SaaS · Android App</span>
+              <span class="badge">Back-End Architect · CQRS SaaS · Android App</span>
             </div>
 
             <div class="case-body-grid">
               <div class="case-col">
                 <h4>Product Scope &amp; Mission</h4>
                 <p>
-                  A modern cloud SaaS built to digitize residential and commercial building management: automated service-charge calculation, utility reconciliation, expense tracking, resident directories, and accounting ledgers, synchronized in real time with a companion Android mobile app on Google Play.
+                  A modern cloud SaaS built to digitize residential and commercial building management: automated service-charge calculation, utility reconciliation, expense tracking, resident directories, and accounting ledgers, with a companion Android app (a Flutter WebView wrapper) on Google Play.
                 </p>
               </div>
 
@@ -1794,8 +1796,7 @@
                   <li><strong>CQRS Back-End Architecture:</strong> Designed and implemented the complete .NET 6 back end with Clean Architecture and CQRS pattern separating read and write models over PostgreSQL and EF Core.</li>
                   <li><strong>Background Job Scheduling:</strong> Configured Hangfire distributed workers for scheduled bill generation, recurring overdue penalties, SMS reminders, and transaction batching.</li>
                   <li><strong>Containerized Infrastructure:</strong> Containerized all application services via Docker and Docker Compose, deployed securely behind high-performance Nginx reverse proxy on Linux servers.</li>
-                  <li><strong>Cross-Platform Mobile App:</strong> Built, tested, and published the native-feel Flutter Android application to Google Play for resident bill payments and real-time announcements.</li>
-                  <li><strong>Web Portal:</strong> Developed an interactive Angular management dashboard utilizing Kendo UI data grids and interactive reporting charts.</li>
+                  <li><strong>Responsive Web Portal &amp; WebView App:</strong> Developed a mobile-responsive Angular management dashboard with Kendo UI data grids and packaged it into a lightweight Flutter WebView wrapper published on Google Play.</li>
                 </ul>
               </div>
             </div>
@@ -1803,7 +1804,7 @@
             <div class="architecture-box">
               <div class="arch-label">System Architecture &amp; Data Pipeline</div>
               <div class="arch-flow">
-                <span class="arch-node">Angular Web + Flutter Mobile</span>
+                <span class="arch-node">Angular Responsive Web</span>
                 <span class="arch-arrow">➔</span>
                 <span class="arch-node">Nginx Reverse Proxy</span>
                 <span class="arch-arrow">➔</span>
@@ -1826,7 +1827,6 @@
               <span class="chip">Nginx</span>
               <span class="chip">Linux</span>
               <span class="chip">Angular</span>
-              <span class="chip">Flutter</span>
             </div>
           </article>
 
@@ -1855,17 +1855,16 @@
               <div class="case-col">
                 <h4>Product Scope &amp; Mission</h4>
                 <p>
-                  A real-time GPS telemetry and vehicle monitoring platform serving commercial fleets and private vehicles across Bangladesh, handling high-frequency sensor streams, geofencing, remote engine cutoff, and instant intrusion alerts.
+                  A GPS vehicle tracking system running live in Bangladesh, with web and mobile apps, real-time maps and alerts, and fleet reports such as fuel consumption and distance driven.
                 </p>
               </div>
 
               <div class="case-col">
                 <h4>Key Engineering Contributions</h4>
                 <ul class="case-highlights">
-                  <li><strong>High-Throughput Database Design:</strong> Tuned SQL Server schemas, partitioned tables, and optimized stored procedures to ingest millions of real-time GPS coordinate pings.</li>
-                  <li><strong>Background Daemon Services:</strong> Built and maintained resilient .NET Windows Services parsing raw GPS device protocol packets and updating vehicle statuses in milliseconds.</li>
-                  <li><strong>Mapping &amp; Push Integrations:</strong> Engineered interactive Google Maps web tracking interfaces and automated emergency push notifications via Firebase Cloud Messaging (FCM) and Twilio SMS.</li>
-                  <li><strong>Mobile App Features:</strong> Developed cross-platform tracking and device telemetry features for the Xamarin Android/iOS mobile application.</li>
+                  <li><strong>Legacy .NET Back End:</strong> Built the reporting back end on .NET Framework Web API and ADO.NET.</li>
+                  <li><strong>Hand-Written T-SQL:</strong> Wrote the stored procedures behind the fleet reports (fuel consumption, distance driven) using complex T-SQL with loops and PIVOT, debugged by hand.</li>
+                  <li><strong>Front End &amp; Integrations:</strong> Built features with Angular, Kendo jQuery UI, and Backbone.js, moved existing .NET services to ASP.NET Core, and integrated Google Maps, push notifications, SMS (Twilio), and Mailgun.</li>
                 </ul>
               </div>
             </div>
@@ -1877,7 +1876,6 @@
               <span class="chip">SQL Server T-SQL</span>
               <span class="chip">ADO.NET</span>
               <span class="chip">Windows Services</span>
-              <span class="chip">Xamarin</span>
               <span class="chip">Google Maps API</span>
               <span class="chip">FCM Push</span>
               <span class="chip">Twilio SMS</span>
@@ -1909,16 +1907,15 @@
               <div class="case-col">
                 <h4>Product Scope &amp; Mission</h4>
                 <p>
-                  A mission-critical enterprise suite built for Strictly FX—the world's premier live concert special effects company (toured for Super Bowl halftime shows, NFL, and global stadium concert tours)—governing pyrotechnic permits, safety compliances, multi-continental crew scheduling, and multi-million-dollar equipment tracking.
+                  An enterprise suite built for Strictly FX, a world-touring live special-effects company in the USA, that runs its shows, crew schedules, logistics, and permits.
                 </p>
               </div>
 
               <div class="case-col">
                 <h4>Key Engineering Contributions</h4>
                 <ul class="case-highlights">
-                  <li><strong>Complex Relational Modeling:</strong> Designed normalized SQL Server database structures, indexed views, and stored procedures handling multi-tiered crew availability and permit approvals.</li>
-                  <li><strong>Modern Web APIs &amp; Front-End:</strong> Built ASP.NET Web API endpoints coupled with Angular 8 interfaces and Kendo UI components for complex scheduling matrixes.</li>
-                  <li><strong>Legacy Migration:</strong> Maintained, optimized, and systematically modernized legacy ASP.NET Web Forms modules into modular API endpoints.</li>
+                  <li><strong>Web API &amp; Front End:</strong> Built ASP.NET Web API endpoints with Angular 8 and Kendo UI interfaces for scheduling.</li>
+                  <li><strong>Legacy Web Forms:</strong> Built and maintained ASP.NET MVC and Web Forms modules on SQL Server with ADO.NET.</li>
                 </ul>
               </div>
             </div>
@@ -1962,7 +1959,7 @@
               </div>
               <div class="timeline-body">
                 <p>
-                  Full-stack developer on <strong>BizTRAQ</strong>, a multi-tenant platform on Microsoft Azure that manages documents, records, and workflows for US businesses in healthcare (HIPAA), fuel distribution, and case management. Built two-factor authentication, secure Azure Blob file access, the .NET 8 document-processing service (Docker, OCR) with GitHub Actions CI/CD to Azure App Service, and the LLM-powered AI Document Chat. Day to day I build .NET Web API services on SQL Server with Entity Framework and data-heavy Angular screens with Kendo UI and SlickGrid.
+                  Full-stack developer on <strong>BizTRAQ</strong>, a multi-tenant platform on Microsoft Azure that manages documents, records, and workflows for US businesses in healthcare (HIPAA), fuel distribution, and case management. Built two-factor authentication, the .NET 8 Blazor document service (Docker, GitHub Actions CI/CD to Azure with OpenID Connect), BizDRIVE document features (permission-aware editing, versioning, DOCX redlining with real-time presence), and the LLM-powered AI Document Chat. Day to day I build .NET Web API services on SQL Server with Entity Framework and Angular record grids with Kendo UI and SlickGrid, and I fixed a production crash caused by broken pooled database connections.
                 </p>
                 <div class="chips-group">
                   <span class="chip">C#</span>
@@ -1991,13 +1988,12 @@
               </div>
               <div class="timeline-body">
                 <p>
-                  Architected the .NET 6 back end of LivingHub, a building utility-management SaaS, on PostgreSQL and EF Core using CQRS. Automated recurring updates and notifications with Hangfire, containerized the platform with Docker behind Nginx on Linux, and built the Angular front end and the Flutter Android app on Google Play. Since Aug 2023, a part-time consultant for architecture guidance, enhancements, and production support.
+                  Architected the .NET 6 back end of LivingHub, a building utility-management SaaS, on PostgreSQL and EF Core using CQRS. Automated recurring updates and notifications with Hangfire, containerized the platform with Docker behind Nginx on Linux, and built the mobile-responsive Angular front end (along with a lightweight Flutter WebView wrapper on Google Play). Since Aug 2023, a part-time consultant for architecture guidance, enhancements, and production support.
                 </p>
                 <div class="chips-group">
                   <span class="chip">.NET 6</span>
                   <span class="chip">CQRS</span>
                   <span class="chip">PostgreSQL</span>
-                  <span class="chip">Flutter</span>
                   <span class="chip">Docker Compose</span>
                   <span class="chip">Nginx</span>
                   <span class="chip">Linux</span>
@@ -2019,7 +2015,7 @@
               </div>
               <div class="timeline-body">
                 <p>
-                  Where my career started, on legacy .NET. Built the reporting back end of <strong>AutoGuard Tracking</strong>, a live GPS vehicle tracking system, on .NET Framework Web API and ADO.NET, and wrote the stored procedures behind its fleet reports, such as fuel consumption and distance driven, using complex T-SQL with loops and PIVOT, debugged by hand. Built ASP.NET MVC and Web Forms modules for <strong>Strictly FX</strong> (USA), maintained a C# Windows Forms desktop application and Windows Services, and developed AutoGuard Xamarin features. Promoted to Software Engineer in Nov 2022: tuned production queries, set up SQL Server Agent jobs, reviewed pull requests, and mentored junior developers.
+                  Where my career started, on legacy .NET. Built the reporting back end of <strong>AutoGuard Tracking</strong>, a live GPS vehicle tracking system, on .NET Framework Web API and ADO.NET, and wrote the stored procedures behind its fleet reports, such as fuel consumption and distance driven, using complex T-SQL with loops and PIVOT, debugged by hand. Built ASP.NET MVC and Web Forms modules for <strong>Strictly FX</strong> (USA), maintained a C# Windows Forms desktop application and Windows Services, built front-end features with Angular, Kendo jQuery UI, and Backbone.js, moved existing .NET services to ASP.NET Core, and integrated Google Maps, FCM push, Twilio SMS, and Mailgun. Promoted to Software Engineer in Nov 2022: tuned production queries, set up SQL Server Agent jobs, reviewed pull requests, and mentored junior developers.
                 </p>
                 <div class="chips-group">
                   <span class="chip">C#</span>
@@ -2029,7 +2025,6 @@
                   <span class="chip">ASP.NET MVC</span>
                   <span class="chip">Web Forms</span>
                   <span class="chip">Windows Forms</span>
-                  <span class="chip">Xamarin</span>
                 </div>
               </div>
             </div>
@@ -2210,6 +2205,7 @@
               <span class="chip">EF Core</span>
               <span class="chip">ADO.NET</span>
               <span class="chip">Hangfire</span>
+              <span class="chip">SignalR</span>
               <span class="chip">Windows Services</span>
               <span class="chip">LINQ</span>
               <span class="chip">.NET Framework</span>
@@ -2229,7 +2225,7 @@
               <h3 class="skill-card-title">Front-End Development</h3>
             </div>
             <div class="chips-group">
-              <span class="chip">Angular 16+</span>
+              <span class="chip">Angular</span>
               <span class="chip">TypeScript</span>
               <span class="chip">RxJS</span>
               <span class="chip">Angular Material</span>
@@ -2256,6 +2252,7 @@
               <span class="chip">Query Execution Tuning</span>
               <span class="chip">Index Optimization</span>
               <span class="chip">SQL Server Agent</span>
+              <span class="chip">Crystal Reports / RDLC</span>
               <span class="chip">Database Migrations</span>
             </div>
           </div>
@@ -2305,11 +2302,10 @@
               <div class="skill-card-icon">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
               </div>
-              <h3 class="skill-card-title">Mobile &amp; Third-Party APIs</h3>
+              <h3 class="skill-card-title">Third-Party Integrations</h3>
             </div>
             <div class="chips-group">
-              <span class="chip">Flutter (Android/iOS)</span>
-              <span class="chip">Xamarin</span>
+              <span class="chip">Flutter (WebView Wrapper)</span>
               <span class="chip">Google Maps API</span>
               <span class="chip">Firebase FCM Push</span>
               <span class="chip">Twilio SMS API</span>
@@ -2366,8 +2362,8 @@
 
           <!-- Full Stack ASP.NET Core -->
           <div class="cred-card">
-            <div class="cred-icon-wrap">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+            <div class="cred-icon-wrap cred-badge">
+              <img src="pencilbox-badge.png" alt="PencilBox Training Institute logo" width="72" height="72" loading="lazy">
             </div>
             <div class="cred-details">
               <div class="cred-name">Full Stack ASP.NET Core Specialist (96 Hours)</div>
@@ -2384,7 +2380,7 @@
             </div>
             <div class="cred-details">
               <div class="cred-name">Professional Diploma: Enterprise Systems Analysis &amp; Design (C#.NET)</div>
-              <div class="cred-org">IsDB-BISEW (Delivered by People-N-tech Limited)</div>
+              <div class="cred-org">IsDB-BISEW</div>
               <div class="cred-desc">Comprehensive 1,100-hour professional diploma in C#, object-oriented analysis, SQL Server, software design patterns, and enterprise project development.</div>
               <div class="cred-year">2019 – 2020</div>
             </div>
