@@ -70,15 +70,15 @@ export const TRAININGS: readonly Training[] = [
     name: 'Professional Customer Service (PCS)',
     organisation: 'Digital Hub Bangladesh Ltd',
     description:
-      'Call-centre focused customer service course, 55 classes (220 hours), run under the Skills for Employment Investment Program (SEIP) and BACCO, supervised by the Ministry of Finance, Bangladesh.',
-    year: 'Completed: 2019',
+      'Call-centre focused customer service course, 220 hours, run under the Skills for Employment Investment Program (SEIP) and BACCO, supervised by the Ministry of Finance, Bangladesh.',
+    year: 'Nov 2018 – 2019',
     icon: 'headset',
   },
   {
     name: 'Communicative English Language Speaking',
     organisation: 'Workplace Skills Development Academy (WSDA), New Zealand',
     description:
-      'Spoken business English, 5 days (20 hours), delivered under the Skills for Employment Investment Program (SEIP) and BACCO, supervised by the Ministry of Finance, Bangladesh.',
+      'Spoken business English, 5 days (20 hours), taught in Bangladesh by a WSDA trainer as part of the same SEIP and BACCO programme.',
     year: 'Completed: 2019',
     icon: 'speech',
   },

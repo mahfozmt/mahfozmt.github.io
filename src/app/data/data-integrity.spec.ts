@@ -200,14 +200,17 @@ describe('content data', () => {
       }
     });
 
-    it('lists the two 2019 SEIP-BACCO trainings with their hours', () => {
+    it('lists the two SEIP-BACCO trainings of one programme, with their hours and dates', () => {
       expect(TRAININGS.map((training) => training.name)).toEqual([
         'Professional Customer Service (PCS)',
         'Communicative English Language Speaking',
       ]);
+      expect(TRAININGS.map((training) => training.year)).toEqual([
+        'Nov 2018 – 2019',
+        'Completed: 2019',
+      ]);
       for (const training of TRAININGS) {
         expect(training.organisation).toBeTruthy();
-        expect(training.year).toBe('Completed: 2019');
         expect(training.description).toContain('SEIP');
         expect(training.description).toContain('BACCO');
       }
