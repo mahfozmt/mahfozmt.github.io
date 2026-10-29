@@ -2,7 +2,7 @@ import { VERSION } from '@angular/core';
 
 import { AI_CARDS, AI_SECTION } from './ai.data';
 import { CASE_FILTERS, CASE_STUDIES, WORK_SECTION } from './case-studies.data';
-import { CREDENTIALS, CREDENTIALS_SECTION } from './credentials.data';
+import { CREDENTIALS, CREDENTIALS_SECTION, TRAINING_TITLE, TRAININGS } from './credentials.data';
 import { EXPERIENCE, EXPERIENCE_SECTION } from './experience.data';
 import { FOOTER_LINKS, NAV_LINKS } from './navigation.data';
 import { CONTACT, HERO, PROFILE } from './profile.data';
@@ -35,6 +35,8 @@ const ALL_DATA = {
   CASE_STUDIES,
   CREDENTIALS_SECTION,
   CREDENTIALS,
+  TRAINING_TITLE,
+  TRAININGS,
   EXPERIENCE_SECTION,
   EXPERIENCE,
   NAV_LINKS,
@@ -188,16 +190,29 @@ describe('content data', () => {
       expect(new Set(SKILL_GROUPS.map((group) => group.id)).size).toBe(SKILL_GROUPS.length);
     });
 
-    it('gives every credential a name, organisation and year, and a badge or an icon', () => {
+    it('gives every credential a name, organisation, year and a badge or logo image', () => {
       for (const credential of CREDENTIALS) {
         expect(credential.name).toBeTruthy();
         expect(credential.organisation).toBeTruthy();
         expect(credential.year).toBeTruthy();
-        expect(Boolean(credential.badge) !== Boolean(credential.icon)).toBe(true);
-        if (credential.badge) {
-          expect(credential.badge.alt).toBeTruthy();
-        }
+        expect(credential.badge.src).toMatch(/\.png$/);
+        expect(credential.badge.alt).toBeTruthy();
       }
+    });
+
+    it('lists the two 2019 SEIP-BACCO trainings with their hours', () => {
+      expect(TRAININGS.map((training) => training.name)).toEqual([
+        'Professional Customer Service (PCS)',
+        'Communicative English Language Speaking',
+      ]);
+      for (const training of TRAININGS) {
+        expect(training.organisation).toBeTruthy();
+        expect(training.year).toBe('Completed: 2019');
+        expect(training.description).toContain('SEIP');
+        expect(training.description).toContain('BACCO');
+      }
+      expect(TRAININGS[0].description).toContain('220 hours');
+      expect(TRAININGS[1].description).toContain('20 hours');
     });
 
     it('links the Microsoft badge to Credly', () => {

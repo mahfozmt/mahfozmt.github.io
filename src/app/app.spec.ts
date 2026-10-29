@@ -124,6 +124,32 @@ describe('App', () => {
     expect(link?.querySelector('img')?.getAttribute('src')).toContain('ms-exam-486-badge.png');
   });
 
+  it('shows a logo on every credential card, white-plated for the two institutions', () => {
+    const cards = Array.from(root.querySelectorAll('#credentials .cred-card:not(.training-card)'));
+
+    expect(cards).toHaveLength(4);
+    for (const card of cards) {
+      expect(card.querySelector('.cred-badge img')).not.toBeNull();
+    }
+    const plated = Array.from(root.querySelectorAll('.cred-plate img')).map((img) =>
+      img.getAttribute('src'),
+    );
+    expect(plated).toEqual(['isdb-bisew-logo.png', 'nu-crest.png']);
+  });
+
+  it('lists the two 2019 trainings in their own row below the credentials', () => {
+    const title = root.querySelector('#credentials .training-title');
+    const names = Array.from(root.querySelectorAll('#credentials .training-card .cred-name')).map(
+      (el) => el.textContent,
+    );
+
+    expect(title?.textContent).toBe('Additional Training');
+    expect(names).toEqual([
+      'Professional Customer Service (PCS)',
+      'Communicative English Language Speaking',
+    ]);
+  });
+
   it('renders the inline <strong> markup of the hero lead through the sanitiser', () => {
     const strong = Array.from(root.querySelectorAll('.hero-lead strong')).map(
       (el) => el.textContent,

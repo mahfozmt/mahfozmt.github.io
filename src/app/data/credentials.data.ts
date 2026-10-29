@@ -1,4 +1,4 @@
-import { Credential } from '../models/credential.model';
+import { Credential, Training } from '../models/credential.model';
 import { SectionHeading } from '../models/section-heading.model';
 
 export const CREDENTIALS_SECTION: SectionHeading = {
@@ -44,13 +44,42 @@ export const CREDENTIALS: readonly Credential[] = [
     description:
       'Comprehensive 1,100-hour professional diploma in C#, object-oriented analysis, SQL Server, software design patterns, and enterprise project development.',
     year: '2019 – 2020',
-    icon: 'book',
+    badge: {
+      src: 'isdb-bisew-logo.png',
+      alt: 'IsDB-BISEW logo',
+      plate: true,
+    },
   },
   {
     name: 'Bachelor of Arts (Honours)',
     organisation: 'National University, Bangladesh',
     description: 'Department of Islamic Studies · Graduated with Cumulative GPA: 3.23 / 4.00',
     year: 'Graduated: 2017',
-    icon: 'graduation',
+    badge: {
+      src: 'nu-crest.png',
+      alt: 'National University, Bangladesh crest',
+      plate: true,
+    },
+  },
+];
+
+export const TRAINING_TITLE = 'Additional Training';
+
+export const TRAININGS: readonly Training[] = [
+  {
+    name: 'Professional Customer Service (PCS)',
+    organisation: 'Digital Hub Bangladesh Ltd',
+    description:
+      'Call-centre focused customer service course, 55 classes (220 hours), run under the Skills for Employment Investment Program (SEIP) and BACCO, supervised by the Ministry of Finance, Bangladesh.',
+    year: 'Completed: 2019',
+    icon: 'headset',
+  },
+  {
+    name: 'Communicative English Language Speaking',
+    organisation: 'Workplace Skills Development Academy (WSDA), New Zealand',
+    description:
+      'Spoken business English, 5 days (20 hours), delivered under the Skills for Employment Investment Program (SEIP) and BACCO, supervised by the Ministry of Finance, Bangladesh.',
+    year: 'Completed: 2019',
+    icon: 'speech',
   },
 ];

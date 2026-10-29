@@ -1,6 +1,11 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 
-import { CREDENTIALS, CREDENTIALS_SECTION } from '../../data/credentials.data';
+import {
+  CREDENTIALS,
+  CREDENTIALS_SECTION,
+  TRAINING_TITLE,
+  TRAININGS,
+} from '../../data/credentials.data';
 import { SectionHeader } from '../section-header/section-header';
 
 @Component({
@@ -13,4 +18,6 @@ import { SectionHeader } from '../section-header/section-header';
 export class Credentials {
   protected readonly heading = CREDENTIALS_SECTION;
   protected readonly credentials = CREDENTIALS;
+  protected readonly trainingTitle = TRAINING_TITLE;
+  protected readonly trainings = TRAININGS;
 }
