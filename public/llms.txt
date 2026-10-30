@@ -1,0 +1,32 @@
+# Mahfozur Rahman
+
+> Mahfozur Rahman is a Full-Stack .NET and Angular developer based in Dhaka, Bangladesh, with 6+ years of experience building and supporting production software for clients in the US and Bangladesh. He started on .NET Framework, ADO.NET and T-SQL stored procedures and now builds multi-tenant SaaS with .NET 8, Angular and Microsoft Azure. He uses AI coding agents (Claude Code, Google Antigravity) every day and reviews, tests and debugs every change himself. He is a Microsoft Certified Professional (MCP).
+
+He is open to full-stack .NET and Angular roles. To contact him, use the contact section of the portfolio or LinkedIn.
+
+## Main pages
+- [Portfolio](https://mahfozmt.com/): selected production systems, experience, AI-assisted engineering, open source, skills, certifications and contact.
+- [CV (PDF)](https://mahfozmt.com/Mahfozur_Rahman_CV.pdf): two-page resume.
+
+## Profiles
+- [LinkedIn](https://www.linkedin.com/in/mahfozmt)
+- [GitHub](https://github.com/mahfozmt)
+
+## Work
+- COBAIT (Aug 2023 to present): Software Developer on BizTRAQ, a multi-tenant platform on Microsoft Azure for US businesses in healthcare, fuel distribution and case management. Built two-factor authentication, a .NET 8 Blazor document service, BizDRIVE document features, server-side record grids and an LLM-powered AI Document Chat.
+- LivingHub Technologies: co-built the .NET 6 CQRS back end of a building utility-management SaaS with a small team, on PostgreSQL and EF Core, deployed with Docker and Nginx.
+- Global Software Architects (Oct 2020 to Oct 2022): reporting back end of the AutoGuard GPS vehicle tracking system on .NET Framework Web API, ADO.NET and T-SQL, plus ASP.NET MVC and Web Forms modules.
+
+## Skills
+C#, T-SQL, TypeScript, ASP.NET Core, .NET 8, Entity Framework Core, Blazor, SignalR, Angular, SQL Server, PostgreSQL, Microsoft Azure, Docker, GitHub Actions, CQRS, Claude Code.
+
+## Credentials
+- Microsoft Certified Professional (MCP): passed Exam 70-486, Developing ASP.NET MVC Web Applications, score 933, November 2020. Verify: https://www.credly.com/badges/5edb0686-f2eb-4737-a95d-3039670edd7a
+- Full Stack ASP.NET Core (96 hours), PencilBox Training Institute, 2022.
+- Professional Diploma in Enterprise Systems Analysis and Design (C#.NET), IsDB-BISEW, 2019 to 2020.
+- Bachelor of Arts (Honours) in Islamic Studies, National University, Bangladesh, 2017.
+
+## Open source
+- [Portfolio website source](https://github.com/mahfozmt/mahfozmt.github.io): this site, built with Angular 21 and prerendered at build time.
+- [BabyKeyBoardSmash](https://github.com/mahfozmt/BabyKeyBoardSmashByMahfoz): Bangla keyboard learning game for toddlers (.NET 8, WPF).
+- [DoctorAppointmentAPI](https://github.com/mahfozmt/DoctorAppointmentAPI): ASP.NET Core Web API with an Angular client.

@@ -98,6 +98,13 @@ describe('App', () => {
     expect(root.querySelectorAll('footer')).toHaveLength(1);
   });
 
+  it('names the person and the role in the main heading, for search engines and screen readers', () => {
+    const heading = root.querySelector('h1')?.textContent ?? '';
+
+    expect(heading).toContain('Mahfozur Rahman');
+    expect(heading).toContain('Enterprise SaaS');
+  });
+
   it('renders every section that the navigation links to', () => {
     for (const link of NAV_LINKS) {
       const section = root.querySelector(`section#${link.id}`);
