@@ -2,7 +2,7 @@
 
 Personal portfolio website of **Mahfozur Rahman**, a Full-Stack .NET & Angular developer based in Dhaka, Bangladesh.
 
-**Live site:** <https://mahfozmt.github.io>
+**Live site:** <https://mahfozmt.com>
 
 The site is a single page: hero, selected production systems, experience, AI-assisted engineering, open source, skills, certifications and contact. It was a hand-written static `index.html`; this repository is the same page rebuilt as an Angular application, with identical content and design.
 
@@ -81,9 +81,9 @@ Pushing to `main` runs `.github/workflows/deploy.yml`:
 4. upload `dist/portfolio/browser` as the Pages artifact
 5. deploy it with `actions/deploy-pages`
 
-The workflow can also be started by hand from the Actions tab. One-time setup in the repository: **Settings → Pages → Build and deployment → Source: GitHub Actions**.
+The workflow can also be started by hand from the Actions tab. One-time setup in the repository: **Settings → Pages → Build and deployment → Source: GitHub Actions**, then **Custom domain: `mahfozmt.com`** with **Enforce HTTPS** on. The domain's DNS has four `A` records for GitHub Pages and a `www` CNAME to `mahfozmt.github.io`; the deployment needs no `CNAME` file.
 
-Because the site is served from the root of `mahfozmt.github.io`, `<base href="/">` is correct and no router fallback is needed. `photo.jpg` and `Mahfozur_Rahman_CV.pdf` stay at the site root because the Open Graph image and the JSON-LD data point at those URLs.
+Because the site is served from the root of the custom domain `mahfozmt.com`, `<base href="/">` is correct and no router fallback is needed. `photo.jpg` and `Mahfozur_Rahman_CV.pdf` stay at the site root because the Open Graph image and the JSON-LD data point at those URLs.
 
 ### Notes
 
