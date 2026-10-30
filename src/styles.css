@@ -164,6 +164,11 @@ a:hover {
   position: relative;
   z-index: 1;
 }
+@media (max-width: 480px) {
+  .container {
+    padding: 0 16px;
+  }
+}
 
 /* ----------------------------------------------------
    BUTTONS & BADGES
@@ -422,4 +427,16 @@ app-root {
   clip-path: inset(50%);
   white-space: nowrap;
   border: 0;
+}
+
+/* Thumb-sized tap targets for small links and buttons on touch screens (desktop is unchanged). */
+@media (pointer: coarse) {
+  .filter-btn,
+  .case-title-group a,
+  .os-card-title,
+  app-site-footer a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 40px;
+  }
 }

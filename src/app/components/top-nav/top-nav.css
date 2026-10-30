@@ -22,6 +22,7 @@ header.top-nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 12px;
   height: 72px;
 }
 
@@ -29,6 +30,8 @@ header.top-nav {
   display: flex;
   align-items: center;
   gap: 12px;
+  /* Lets the name shrink (and truncate) instead of pushing the buttons off the bar. */
+  min-width: 0;
   font-weight: 800;
   font-size: 1.15rem;
   letter-spacing: -0.02em;
@@ -54,6 +57,14 @@ header.top-nav {
 .brand-title {
   display: flex;
   flex-direction: column;
+  min-width: 0;
+}
+.brand-title span.name,
+.brand-title span.title {
+  /* One line each; anything too long ends in an ellipsis rather than wrapping out of the bar. */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .brand-title span.name {
   font-size: 1.05rem;
@@ -73,6 +84,7 @@ nav.desktop-nav {
   gap: 8px;
 }
 nav.desktop-nav a {
+  white-space: nowrap;
   color: var(--text-muted);
   font-size: 0.925rem;
   font-weight: 500;
@@ -90,6 +102,7 @@ nav.desktop-nav a.active {
   display: flex;
   align-items: center;
   gap: 10px;
+  flex-shrink: 0;
 }
 
 .btn-icon {
@@ -167,11 +180,52 @@ nav.desktop-nav a.active {
   font-size: 1.2rem;
 }
 
-@media (max-width: 768px) {
+/* The seven menu links plus the name need about 1,000px, so tablets get the menu button too. */
+@media (max-width: 1040px) {
   nav.desktop-nav {
     display: none;
   }
   .mobile-menu-toggle {
     display: inline-flex;
+  }
+}
+
+@media (max-width: 480px) {
+  .nav-wrapper {
+    gap: 8px;
+  }
+  .brand-logo {
+    gap: 10px;
+  }
+  .brand-title span.name {
+    font-size: 0.975rem;
+  }
+  /* The tagline is repeated right below in the hero, and there is no room for it on a phone. */
+  .brand-title span.title {
+    display: none;
+  }
+  .nav-actions {
+    gap: 6px;
+  }
+  .btn-icon {
+    width: 38px;
+    height: 38px;
+  }
+  /* The CV button keeps its icon and loses its label so the bar fits. */
+  .nav-actions .btn-sm {
+    padding: 0;
+    width: 38px;
+    height: 38px;
+    justify-content: center;
+  }
+  .nav-actions .btn-sm span {
+    display: none;
+  }
+}
+
+/* Very small phones: the name is the first thing to give way. */
+@media (max-width: 340px) {
+  .brand-title span.name {
+    font-size: 0.9rem;
   }
 }
