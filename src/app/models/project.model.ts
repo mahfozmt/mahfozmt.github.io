@@ -7,4 +7,6 @@ export interface OpenSourceProject {
   readonly badge?: string;
   /** Featured projects span the whole grid row. */
   readonly featured?: boolean;
+  /** Address where the project runs, shown as a "Live app" link. */
+  readonly liveUrl?: string;
 }

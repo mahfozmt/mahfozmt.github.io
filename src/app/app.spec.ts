@@ -188,6 +188,13 @@ describe('App', () => {
     );
   });
 
+  it('links the DevAssistant card to the live lab site', () => {
+    const live = root.querySelector('#open-source .os-card-live');
+
+    expect(live?.getAttribute('href')).toBe('https://lab.mahfozmt.com');
+    expect(live?.textContent).toContain('Live app: lab.mahfozmt.com');
+  });
+
   describe('copy email buttons', () => {
     it.each([['#copyEmailHeroBtn'], ['#copyEmailCtaBtn']])(
       '%s copies the address and shows the toast',

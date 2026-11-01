@@ -168,6 +168,14 @@ describe('content data', () => {
       }
     });
 
+    it('features DevAssistant with its live lab address', () => {
+      const lab = OPEN_SOURCE_PROJECTS.find((project) => project.name === 'DevAssistant');
+
+      expect(lab?.url).toBe('https://github.com/mahfozmt/dev-assistant');
+      expect(lab?.liveUrl).toBe('https://lab.mahfozmt.com');
+      expect(lab?.featured).toBe(true);
+    });
+
     it('ends with this site, naming the Angular version it is built with', () => {
       const last = OPEN_SOURCE_PROJECTS[OPEN_SOURCE_PROJECTS.length - 1];
 

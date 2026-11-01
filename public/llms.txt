@@ -27,6 +27,7 @@ C#, T-SQL, TypeScript, ASP.NET Core, .NET 8, Entity Framework Core, Blazor, Sign
 - Bachelor of Arts (Honours) in Islamic Studies, National University, Bangladesh, 2017.
 
 ## Open source
+- [DevAssistant](https://github.com/mahfozmt/dev-assistant), live at https://lab.mahfozmt.com: browser-based developer toolkit (formatters, JSON Schema and JSONPath, diff, converters, BCrypt, JWT, hash and UUID tools) built with Angular 19 and Tailwind CSS, developed engineer-led with an agentic AI coding assistant and deployed to IIS by GitHub Actions.
 - [Portfolio website source](https://github.com/mahfozmt/mahfozmt.github.io): this site, built with Angular 21 and prerendered at build time.
 - [BabyKeyBoardSmash](https://github.com/mahfozmt/BabyKeyBoardSmashByMahfoz): Bangla keyboard learning game for toddlers (.NET 8, WPF).
 - [DoctorAppointmentAPI](https://github.com/mahfozmt/DoctorAppointmentAPI): ASP.NET Core Web API with an Angular client.

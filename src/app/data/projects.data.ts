@@ -13,6 +13,23 @@ export const OPEN_SOURCE_SECTION: SectionHeading = {
 
 export const OPEN_SOURCE_PROJECTS: readonly OpenSourceProject[] = [
   {
+    name: 'DevAssistant',
+    url: 'https://github.com/mahfozmt/dev-assistant',
+    liveUrl: 'https://lab.mahfozmt.com',
+    description:
+      'A privacy-first developer toolkit running on my own lab subdomain. JSON, SQL, XML and CSS formatters, a JSONPath evaluator, JSON Schema validator, diff viewer, JSON to CSV and YAML converters, plus BCrypt, JWT, hash and UUID tools, all running in the browser so no data leaves the page. Built engineer-led with an agentic AI coding assistant from my own phased plan, one unit-tested tool per commit, and shipped to IIS on Windows hosting by a GitHub Actions FTPS pipeline.',
+    chips: [
+      'Angular 19',
+      'TypeScript',
+      'Tailwind CSS',
+      'IIS',
+      'GitHub Actions CI/CD',
+      'Agentic AI',
+    ],
+    badge: 'Live App',
+    featured: true,
+  },
+  {
     name: 'BabyKeyBoardSmashByMahfoz',
     url: 'https://github.com/mahfozmt/BabyKeyBoardSmashByMahfoz',
     description:
