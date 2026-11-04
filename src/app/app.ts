@@ -2,6 +2,7 @@ import { DOCUMENT } from '@angular/common';
 import { ChangeDetectionStrategy, Component, afterNextRender, inject } from '@angular/core';
 
 import { AiSection } from './components/ai-section/ai-section';
+import { ArchitectureBlueprint } from './components/blueprint/blueprint';
 import { BackToTop } from './components/back-to-top/back-to-top';
 import { CaseStudies } from './components/case-studies/case-studies';
 import { Contact } from './components/contact/contact';
@@ -20,6 +21,7 @@ import { ScrollService } from './services/scroll.service';
   imports: [
     TopNav,
     Hero,
+    ArchitectureBlueprint,
     CaseStudies,
     Experience,
     AiSection,

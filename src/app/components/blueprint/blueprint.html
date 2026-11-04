@@ -1,0 +1,97 @@
+<section id="architecture" class="blueprint-section" aria-labelledby="blueprint-heading">
+  <div class="container">
+    <!-- Header -->
+    <div class="blueprint-header">
+      <div>
+        <div class="telemetry-eyebrow">SYS_SPEC // DISTRIBUTED_FABRIC_01</div>
+        <h2 id="blueprint-heading" class="blueprint-title">
+          Interactive Distributed Architecture Blueprint
+        </h2>
+        <p class="blueprint-subtitle">
+          End-to-end production transactional execution flow. Select any tier node to inspect
+          runtime telemetries, security constraints, and service contracts.
+        </p>
+      </div>
+      <div class="status-indicator-pill">
+        <span class="pulse-dot"></span>
+        <span>REAL-TIME INSPECTOR ACTIVE</span>
+      </div>
+    </div>
+
+    <!-- Blueprint Interactive Canvas -->
+    <div class="blueprint-card">
+      <!-- 5 Node Horizontal Flow -->
+      <div class="nodes-strip">
+        <div class="nodes-grid" role="tablist" aria-label="Architecture Tiers">
+          @for (node of nodes; track node.id) {
+            <button
+              class="arch-node-btn"
+              [class.active]="selectedId() === node.id"
+              [attr.aria-selected]="selectedId() === node.id"
+              role="tab"
+              type="button"
+              (click)="selectNode(node.id)"
+            >
+              <div class="node-meta-top">
+                <span class="node-code">{{ node.code }}</span>
+                <span class="node-icon-symbol" aria-hidden="true">{{ node.id }}</span>
+              </div>
+              <div class="node-name">{{ node.name }}</div>
+              <div class="node-badge">{{ node.badge }}</div>
+              <div class="node-footer-tag">
+                <span class="node-bullet" [class.active-bullet]="selectedId() === node.id"></span>
+                <span>{{ node.highlight }}</span>
+              </div>
+            </button>
+          }
+        </div>
+      </div>
+
+      <!-- Inspector Panel -->
+      @let node = activeNode();
+      <div class="inspector-panel">
+        <div class="inspector-details">
+          <div class="inspector-badge-row">
+            <span class="inspect-badge">{{ node.code }}</span>
+            <span class="inspect-protocol">{{ node.protocol }}</span>
+          </div>
+
+          <h3 class="inspect-title">{{ node.title }}</h3>
+          <p class="inspect-desc">{{ node.description }}</p>
+
+          <div class="inspect-metrics-grid">
+            <div class="metric-col">
+              <div class="metric-caption">{{ node.metric1Label }}</div>
+              <div class="metric-val">{{ node.metric1Val }}</div>
+            </div>
+            <div class="metric-col">
+              <div class="metric-caption">{{ node.metric2Label }}</div>
+              <div class="metric-val highlight-val">{{ node.metric2Val }}</div>
+            </div>
+            <div class="metric-col">
+              <div class="metric-caption">{{ node.metric3Label }}</div>
+              <div class="metric-val">{{ node.metric3Val }}</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Simulated Telemetry Console Output -->
+        <div class="inspector-terminal">
+          <div class="terminal-header">
+            <div class="terminal-dots">
+              <span class="dot red"></span>
+              <span class="dot yellow"></span>
+              <span class="dot green"></span>
+              <span class="terminal-filename">runtime-telemetry.log</span>
+            </div>
+            <span class="terminal-tag">LIVE_STREAM</span>
+          </div>
+          <pre
+            class="terminal-code"
+          ><code>@for (log of node.logs; track log.time) {[{{ log.time }}] <span [class]="'level-' + log.level.toLowerCase()">{{ log.level }}</span> {{ log.text }}
+}</code></pre>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
