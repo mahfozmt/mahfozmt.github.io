@@ -3,10 +3,10 @@ import { SkillGroup } from '../models/skill.model';
 
 export const SKILLS_SECTION: SectionHeading = {
   headingId: 'skills-heading',
-  eyebrow: 'Technical Mastery',
-  title: 'Skills & Technology Stack',
+  eyebrow: 'Capabilities // Enterprise_Stack',
+  title: 'Technical Stack & Architectural Matrix',
   description:
-    'Battle-tested tools, languages, and frameworks applied in enterprise production systems every week.',
+    'Catalog of production proficiencies across back-end services, reactive front-end, data stores, and cloud architectures.',
 };
 
 export const SKILL_GROUPS: readonly SkillGroup[] = [
