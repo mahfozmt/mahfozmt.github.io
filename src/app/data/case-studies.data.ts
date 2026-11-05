@@ -33,6 +33,8 @@ export const CASE_STUDIES: readonly CaseStudy[] = [
     id: 'biztraq',
     title: 'BizTRAQ: Enterprise Business Information Platform',
     company: 'COBAIT',
+    logoUrl: '/logos/biztraq.png',
+    logoAlt: 'BizTRAQ Enterprise Platform Logo',
     period: 'Aug 2023 – Present',
     site: {
       label: 'biztraq.com',
@@ -105,6 +107,8 @@ export const CASE_STUDIES: readonly CaseStudy[] = [
     id: 'livinghub',
     title: 'LivingHub: Smart Building Utility Management SaaS',
     company: 'LivingHub Technologies',
+    logoUrl: '/logos/livinghub.png',
+    logoAlt: 'LivingHub Technologies Logo',
     period: 'Jan 2023 – Present',
     site: {
       label: 'livinghub.tech',
@@ -159,6 +163,8 @@ export const CASE_STUDIES: readonly CaseStudy[] = [
     id: 'autoguard-tracking',
     title: 'AutoGuard Tracking: Real-Time Fleet & Vehicle IoT Tracking',
     company: 'Global Software Architects',
+    logoUrl: '/logos/autoguard.png',
+    logoAlt: 'AutoGuard Vehicle Tracking System Logo',
     period: 'Oct 2020 – Jan 2023',
     site: {
       label: 'autoguardtracking.com',
@@ -198,6 +204,8 @@ export const CASE_STUDIES: readonly CaseStudy[] = [
     id: 'strictly-fx',
     title: 'Enterprise Tour & Event Management Suite: Strictly FX (USA)',
     company: 'Global Software Architects',
+    logoUrl: '/logos/strictlyfx.svg',
+    logoAlt: 'Strictly FX Logo',
     period: 'Oct 2020 – Jan 2023',
     site: {
       label: 'strictlyfx.com',
