@@ -137,7 +137,6 @@
         <div class="hero-bento-metrics">
           @for (stat of hero.stats; track stat.label) {
             <div class="bento-stat-card stat-card">
-              <div class="stat-meta-tag">SYS_SPEC // METRIC</div>
               <div class="stat-number">
                 {{ stat.prefix }}
                 @if (stat.highlight) {

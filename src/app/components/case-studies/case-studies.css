@@ -41,7 +41,7 @@
   border-radius: var(--radius-xl);
   padding: 36px;
   box-shadow: var(--card-shadow);
-  transition: all 0.3s ease;
+  transition: all 0.25s ease;
   display: flex;
   flex-direction: column;
   gap: 24px;
@@ -49,7 +49,7 @@
 }
 .case-card:hover {
   box-shadow: var(--card-shadow-hover);
-  border-color: rgba(56, 189, 248, 0.35);
+  border-color: var(--primary);
 }
 
 .case-header {
@@ -60,9 +60,10 @@
   gap: 16px;
 }
 .case-title-group h3 {
-  font-size: 1.5rem;
+  font-family: var(--font-serif);
+  font-size: 1.6rem;
   font-weight: 700;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.015em;
   margin-bottom: 6px;
   display: flex;
   align-items: center;
