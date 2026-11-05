@@ -59,12 +59,50 @@
   align-items: flex-start;
   gap: 16px;
 }
-.case-title-group h3 {
+.case-title-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.project-brand-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  align-self: flex-start;
+  padding: 6px 14px;
+  background: #ffffff;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+  max-height: 48px;
+  transition: all 0.2s ease;
+}
+
+[data-theme='dark'] .project-brand-badge {
+  background: rgba(255, 255, 255, 0.95);
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+[data-theme='dark'] .project-brand-badge.svg-logo {
+  background: var(--surface);
+  border-color: var(--border);
+}
+
+.project-logo-img {
+  height: 28px;
+  max-width: 140px;
+  width: auto;
+  object-fit: contain;
+  display: block;
+}
+
+.case-title {
   font-family: var(--font-serif);
   font-size: 1.6rem;
   font-weight: 700;
   letter-spacing: -0.015em;
-  margin-bottom: 6px;
+  margin: 0;
   display: flex;
   align-items: center;
   gap: 10px;

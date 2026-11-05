@@ -8,13 +8,25 @@
           <div class="timeline-marker" aria-hidden="true"></div>
           <div class="timeline-card">
             <div class="timeline-top">
-              <div>
-                <h3 class="role-title">{{ entry.title }}</h3>
-                <div class="company-name">
-                  {{ entry.company }}
-                  @if (entry.employmentType) {
-                    · {{ entry.employmentType }}
-                  }
+              <div class="role-header-group">
+                @if (entry.logoUrl) {
+                  <div class="exp-brand-badge">
+                    <img
+                      [src]="entry.logoUrl"
+                      [alt]="entry.logoAlt || entry.company + ' logo'"
+                      class="exp-logo-img"
+                      loading="lazy"
+                    />
+                  </div>
+                }
+                <div>
+                  <h3 class="role-title">{{ entry.title }}</h3>
+                  <div class="company-name">
+                    {{ entry.company }}
+                    @if (entry.employmentType) {
+                      · {{ entry.employmentType }}
+                    }
+                  </div>
                 </div>
               </div>
               <div class="timeline-date">{{ entry.dates }} · {{ entry.location }}</div>

@@ -26,6 +26,8 @@ export interface CaseStudy {
   readonly id: string;
   readonly title: string;
   readonly company: string;
+  readonly logoUrl?: string;
+  readonly logoAlt?: string;
   readonly period: string;
   readonly site: ExternalSite;
   readonly badge: string;

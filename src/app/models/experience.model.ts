@@ -2,6 +2,8 @@ export interface ExperienceEntry {
   readonly id: string;
   readonly title: string;
   readonly company: string;
+  readonly logoUrl?: string;
+  readonly logoAlt?: string;
   /** Employment type shown after the company, for example `Full-time`. */
   readonly employmentType?: string;
   /** Date range, for example `Aug 2023 – Present`. */

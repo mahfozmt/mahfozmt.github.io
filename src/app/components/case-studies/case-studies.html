@@ -24,7 +24,17 @@
         <article class="case-card" [attr.data-category]="study.categories.join(' ')">
           <div class="case-header">
             <div class="case-title-group">
-              <h3>
+              @if (study.logoUrl) {
+                <div class="project-brand-badge" [class.svg-logo]="study.logoUrl.endsWith('.svg')">
+                  <img
+                    [src]="study.logoUrl"
+                    [alt]="study.logoAlt || study.company + ' logo'"
+                    class="project-logo-img"
+                    loading="lazy"
+                  />
+                </div>
+              }
+              <h3 class="case-title">
                 <span>{{ study.title }}</span>
               </h3>
               <div class="case-meta">
