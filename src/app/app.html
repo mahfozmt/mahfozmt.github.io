@@ -1,10 +1,14 @@
+<!-- Skip to content link for keyboard and screen reader accessibility -->
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
 <!-- Background Ambient Glow -->
 <div class="ambient-glow-1" aria-hidden="true"></div>
 <div class="ambient-glow-2" aria-hidden="true"></div>
 
 <app-top-nav />
 
-<main id="top">
+<main id="main-content" tabindex="-1">
+  <div id="top" aria-hidden="true"></div>
   <app-hero />
   <app-architecture-blueprint />
   <app-case-studies />

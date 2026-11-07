@@ -531,6 +531,43 @@ app-root {
   display: block;
 }
 
+/* Skip to main content link for keyboard and screen reader accessibility */
+.skip-link {
+  position: fixed;
+  top: 16px;
+  left: 16px;
+  z-index: 1000;
+  padding: 10px 18px;
+  background: var(--surface);
+  color: var(--primary);
+  border: 2px solid var(--border-focus);
+  border-radius: var(--radius-md);
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  font-weight: 700;
+  box-shadow: var(--card-shadow-hover);
+  text-decoration: none;
+  transform: translateY(-160%);
+  transition: transform 0.2s ease;
+}
+.skip-link:focus,
+.skip-link:focus-visible {
+  transform: translateY(0);
+  outline: 2px solid var(--border-focus);
+  outline-offset: 2px;
+}
+
+/* Clear, accessible keyboard focus ring for interactive elements */
+:focus-visible {
+  outline: 2px solid var(--border-focus);
+  outline-offset: 2px;
+}
+
+/* Remove default focus outline on main when targeted via skip link */
+main:focus {
+  outline: none;
+}
+
 /* Text for screen readers and crawlers that is already shown elsewhere on screen. */
 .sr-only {
   position: absolute;
