@@ -24,39 +24,46 @@
         <article class="case-card" [attr.data-category]="study.categories.join(' ')">
           <div class="case-header">
             <div class="case-title-group">
-              @if (study.logoUrl) {
-                <div class="project-brand-badge" [class.svg-logo]="study.logoUrl.endsWith('.svg')">
-                  <img
-                    [src]="study.logoUrl"
-                    [alt]="study.logoAlt || study.company + ' logo'"
-                    class="project-logo-img"
-                    loading="lazy"
-                  />
-                </div>
-              }
-              <h3 class="case-title">
-                <span>{{ study.title }}</span>
-              </h3>
-              <div class="case-meta">
-                <span><strong>Company:</strong> {{ study.company }}</span>
-                <span>·</span>
-                <span>{{ study.period }}</span>
-                <span>·</span>
-                <a [href]="study.site.url" target="_blank" rel="noopener">
-                  {{ study.site.label }}
-                  <svg
-                    width="14"
-                    height="14"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
+              <div class="case-header-primary">
+                @if (study.logoUrl) {
+                  <div
+                    class="project-brand-badge"
+                    [class.svg-logo]="study.logoUrl.endsWith('.svg')"
                   >
-                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
-                    <polyline points="15 3 21 3 21 9" />
-                    <line x1="10" y1="14" x2="21" y2="3" />
-                  </svg>
-                </a>
+                    <img
+                      [src]="study.logoUrl"
+                      [alt]="study.logoAlt || study.company + ' logo'"
+                      class="project-logo-img"
+                      loading="lazy"
+                    />
+                  </div>
+                }
+                <div class="case-headings">
+                  <h3 class="case-title">
+                    <span>{{ study.title }}</span>
+                  </h3>
+                  <div class="case-meta">
+                    <span class="meta-company"><strong>Company:</strong> {{ study.company }}</span>
+                    <span class="meta-sep" aria-hidden="true">·</span>
+                    <span>{{ study.period }}</span>
+                    <span class="meta-sep" aria-hidden="true">·</span>
+                    <a [href]="study.site.url" target="_blank" rel="noopener">
+                      {{ study.site.label }}
+                      <svg
+                        width="14"
+                        height="14"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                      >
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                        <polyline points="15 3 21 3 21 9" />
+                        <line x1="10" y1="14" x2="21" y2="3" />
+                      </svg>
+                    </a>
+                  </div>
+                </div>
               </div>
             </div>
             <span class="badge">{{ study.badge }}</span>
