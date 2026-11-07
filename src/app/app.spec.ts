@@ -98,6 +98,16 @@ describe('App', () => {
     expect(root.querySelectorAll('footer')).toHaveLength(1);
   });
 
+  it('includes an accessible skip-to-content link pointing to the main landmark', () => {
+    const skipLink = root.querySelector<HTMLAnchorElement>('a.skip-link');
+    const main = root.querySelector<HTMLElement>('main');
+
+    expect(skipLink).not.toBeNull();
+    expect(skipLink?.getAttribute('href')).toBe('#main-content');
+    expect(skipLink?.textContent?.trim()).toBe('Skip to main content');
+    expect(main?.getAttribute('id')).toBe('main-content');
+  });
+
   it('names the person and the role in the main heading, for search engines and screen readers', () => {
     const heading = root.querySelector('h1')?.textContent ?? '';
 
