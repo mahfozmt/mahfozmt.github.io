@@ -20,6 +20,9 @@ const SPY_OFFSET = 100;
   selector: 'app-top-nav',
   templateUrl: './top-nav.html',
   styleUrl: './top-nav.css',
+  host: {
+    '(document:keydown.escape)': 'onEscape()',
+  },
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TopNav {
@@ -49,6 +52,16 @@ export class TopNav {
 
   closeMenu(): void {
     this.menuOpen.set(false);
+  }
+
+  protected onEscape(): void {
+    if (this.menuOpen()) {
+      this.closeMenu();
+      const toggleBtn = this.document.getElementById('mobileMenuBtn');
+      if (toggleBtn instanceof HTMLElement) {
+        toggleBtn.focus();
+      }
+    }
   }
 
   private updateActiveSection(position: number): void {

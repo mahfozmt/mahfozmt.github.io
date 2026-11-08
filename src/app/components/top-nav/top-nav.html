@@ -88,7 +88,7 @@
         id="mobileMenuBtn"
         class="btn-icon mobile-menu-toggle"
         type="button"
-        aria-label="Open mobile menu"
+        [attr.aria-label]="menuOpen() ? 'Close mobile menu' : 'Open mobile menu'"
         aria-controls="mobileDrawer"
         [attr.aria-expanded]="menuOpen()"
         (click)="toggleMenu()"
