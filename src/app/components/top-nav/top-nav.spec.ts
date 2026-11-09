@@ -89,21 +89,24 @@ describe('TopNav', () => {
   describe('mobile menu', () => {
     it('starts closed', () => {
       expect(query('#mobileMenuBtn').getAttribute('aria-expanded')).toBe('false');
+      expect(query('#mobileMenuBtn').getAttribute('aria-label')).toBe('Open mobile menu');
       expect(query('#mobileDrawer').classList.contains('open')).toBe(false);
     });
 
-    it('opens and closes with the menu button, keeping aria-expanded in sync', async () => {
+    it('opens and closes with the menu button, keeping aria-expanded and aria-label in sync', async () => {
       const button = query<HTMLButtonElement>('#mobileMenuBtn');
       const drawer = query('#mobileDrawer');
 
       button.click();
       await fixture.whenStable();
       expect(button.getAttribute('aria-expanded')).toBe('true');
+      expect(button.getAttribute('aria-label')).toBe('Close mobile menu');
       expect(drawer.classList.contains('open')).toBe(true);
 
       button.click();
       await fixture.whenStable();
       expect(button.getAttribute('aria-expanded')).toBe('false');
+      expect(button.getAttribute('aria-label')).toBe('Open mobile menu');
       expect(drawer.classList.contains('open')).toBe(false);
     });
 
@@ -121,6 +124,24 @@ describe('TopNav', () => {
 
       expect(query('#mobileDrawer').classList.contains('open')).toBe(false);
       expect(button.getAttribute('aria-expanded')).toBe('false');
+      expect(button.getAttribute('aria-label')).toBe('Open mobile menu');
+    });
+
+    it('closes on Escape key press and restores focus to the menu toggle button', async () => {
+      const button = query<HTMLButtonElement>('#mobileMenuBtn');
+      button.click();
+      await fixture.whenStable();
+      expect(query('#mobileDrawer').classList.contains('open')).toBe(true);
+
+      const focusSpy = vi.spyOn(button, 'focus');
+
+      document.dispatchEvent(new KeyboardEvent('keydown', { key: 'Escape', bubbles: true }));
+      await fixture.whenStable();
+
+      expect(query('#mobileDrawer').classList.contains('open')).toBe(false);
+      expect(button.getAttribute('aria-expanded')).toBe('false');
+      expect(button.getAttribute('aria-label')).toBe('Open mobile menu');
+      expect(focusSpy).toHaveBeenCalledOnce();
     });
   });
 });
