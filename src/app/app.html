@@ -1,9 +1,69 @@
 <!-- Skip to content link for keyboard and screen reader accessibility -->
 <a href="#main-content" class="skip-link">Skip to main content</a>
 
-<!-- Background Ambient Glow -->
-<div class="ambient-glow-1" aria-hidden="true"></div>
-<div class="ambient-glow-2" aria-hidden="true"></div>
+<!-- Precision Coder Circuit & Telemetry Background -->
+<div class="coder-bg-canvas" aria-hidden="true">
+  <svg class="circuit-svg" viewBox="0 0 1440 900" fill="none" preserveAspectRatio="xMidYMid slice">
+    <defs>
+      <linearGradient id="traceGradCyan" x1="0%" y1="0%" x2="100%" y2="0%">
+        <stop offset="0%" stop-color="rgba(0, 242, 254, 0)" />
+        <stop offset="50%" stop-color="rgba(0, 242, 254, 0.55)" />
+        <stop offset="100%" stop-color="rgba(0, 242, 254, 0)" />
+      </linearGradient>
+      <linearGradient id="traceGradGreen" x1="0%" y1="0%" x2="0%" y2="100%">
+        <stop offset="0%" stop-color="rgba(16, 185, 129, 0)" />
+        <stop offset="50%" stop-color="rgba(16, 185, 129, 0.5)" />
+        <stop offset="100%" stop-color="rgba(16, 185, 129, 0)" />
+      </linearGradient>
+    </defs>
+
+    <!-- Static PCB Orthogonal Traces -->
+    <g class="pcb-traces" stroke="currentColor" stroke-width="1">
+      <path d="M 0 128 H 240 L 288 176 H 620 L 652 144 H 1440" />
+      <path d="M 0 416 H 160 L 208 368 H 512 L 560 416 H 1120 L 1168 368 H 1440" />
+      <path d="M 0 704 H 360 L 408 656 H 880 L 928 704 H 1440" />
+      <path d="M 192 0 V 220 L 240 268 V 620 L 192 668 V 900" />
+      <path d="M 1248 0 V 180 L 1200 228 V 540 L 1248 588 V 900" />
+    </g>
+
+    <!-- Animated Data Packets Traveling Along Circuit Traces -->
+    <path
+      class="circuit-pulse pulse-h-1"
+      d="M 0 128 H 240 L 288 176 H 620 L 652 144 H 1440"
+      stroke="url(#traceGradCyan)"
+      stroke-width="2"
+    />
+    <path
+      class="circuit-pulse pulse-h-2"
+      d="M 0 416 H 160 L 208 368 H 512 L 560 416 H 1120 L 1168 368 H 1440"
+      stroke="url(#traceGradCyan)"
+      stroke-width="2"
+    />
+    <path
+      class="circuit-pulse pulse-v-1"
+      d="M 192 0 V 220 L 240 268 V 620 L 192 668 V 900"
+      stroke="url(#traceGradGreen)"
+      stroke-width="2"
+    />
+    <path
+      class="circuit-pulse pulse-v-2"
+      d="M 1248 0 V 180 L 1200 228 V 540 L 1248 588 V 900"
+      stroke="url(#traceGradGreen)"
+      stroke-width="2"
+    />
+
+    <!-- Circuit Solder Nodes & Registration Crosshairs -->
+    <g class="pcb-nodes">
+      <circle cx="240" cy="128" r="3" />
+      <circle cx="288" cy="176" r="3" />
+      <circle cx="620" cy="176" r="3" />
+      <circle cx="512" cy="368" r="3" />
+      <circle cx="1120" cy="416" r="3" />
+      <circle cx="240" cy="268" r="3.5" />
+      <circle cx="1200" cy="228" r="3.5" />
+    </g>
+  </svg>
+</div>
 
 <app-top-nav />
 

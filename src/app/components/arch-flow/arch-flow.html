@@ -1,9 +1,49 @@
-<div class="arch-label">{{ flow().label }}</div>
+<div class="arch-head-bar">
+  <span class="arch-label">
+    <span class="arch-label-prefix" aria-hidden="true">// PIPELINE_TOPOLOGY:</span>
+    {{ flow().label }}
+  </span>
+  <span class="arch-live-tag" aria-hidden="true">
+    <span class="arch-live-dot"></span> ACTIVE_BUS
+  </span>
+</div>
 <div class="arch-flow">
-  @for (node of flow().nodes; track node; let last = $last) {
-    <span class="arch-node">{{ node }}</span>
+  @for (node of flow().nodes; track node; let idx = $index; let last = $last) {
+    <span class="arch-node">
+      <span class="arch-node-idx" aria-hidden="true">0{{ idx + 1 }}</span>
+      <span>{{ node }}</span>
+    </span>
     @if (!last) {
-      <span class="arch-arrow">➔</span>
+      <span class="arch-arrow" aria-hidden="true">
+        <svg class="arch-wire-svg" viewBox="0 0 36 14" width="32" height="14">
+          <line
+            x1="0"
+            y1="7"
+            x2="28"
+            y2="7"
+            stroke="rgba(0, 242, 254, 0.25)"
+            stroke-width="1.5"
+          />
+          <line
+            class="wire-pulse"
+            x1="0"
+            y1="7"
+            x2="28"
+            y2="7"
+            stroke="var(--primary)"
+            stroke-width="2"
+            stroke-dasharray="8 24"
+          />
+          <polyline
+            points="24 3 31 7 24 11"
+            fill="none"
+            stroke="var(--primary)"
+            stroke-width="1.8"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </svg>
+      </span>
     }
   }
 </div>

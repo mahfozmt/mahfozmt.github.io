@@ -1,40 +1,125 @@
 :host {
   background: var(--bg-alt);
   border: 1px solid var(--border);
-  border-radius: var(--radius-lg);
-  padding: 16px 20px;
+  border-left: 3px solid var(--primary);
+  border-radius: var(--radius-md);
+  padding: 14px 18px;
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 10px;
+  position: relative;
+  overflow: hidden;
 }
+
+.arch-head-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
 .arch-label {
-  font-size: 0.75rem;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: var(--text-subtle);
+  letter-spacing: 0.06em;
+  color: var(--text-muted);
 }
+
+.arch-label-prefix {
+  color: var(--primary);
+  margin-right: 4px;
+}
+
+.arch-live-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-family: var(--font-mono);
+  font-size: 0.64rem;
+  font-weight: 700;
+  color: var(--success-text);
+  letter-spacing: 0.06em;
+}
+
+.arch-live-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--success);
+  box-shadow: 0 0 6px var(--success);
+  animation: wire-blink 1.5s infinite;
+}
+
+@keyframes wire-blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.35;
+  }
+}
+
 .arch-flow {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 8px;
-  font-size: 0.85rem;
+  gap: 6px;
+  font-size: 0.82rem;
   font-family: var(--font-mono);
 }
+
 .arch-node {
   background: var(--surface);
   border: 1px solid var(--border);
-  padding: 6px 12px;
+  padding: 5px 11px;
   border-radius: var(--radius-sm);
   font-weight: 600;
   color: var(--text);
   display: inline-flex;
   align-items: center;
-  gap: 6px;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  gap: 7px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  transition: all 0.2s ease;
 }
-.arch-arrow {
+
+.arch-node:hover {
+  border-color: var(--primary);
+  transform: translateY(-1px);
+  box-shadow: 0 0 10px -2px var(--primary-glow);
+}
+
+.arch-node-idx {
+  font-size: 0.65rem;
   color: var(--primary);
+  background: var(--primary-soft);
+  padding: 1px 5px;
+  border-radius: 3px;
   font-weight: 700;
+}
+
+.arch-arrow {
+  display: inline-flex;
+  align-items: center;
+}
+
+.arch-wire-svg {
+  display: block;
+  overflow: visible;
+}
+
+.wire-pulse {
+  stroke-dashoffset: 32;
+  animation: wire-packet 1.4s linear infinite;
+}
+
+@keyframes wire-packet {
+  0% {
+    stroke-dashoffset: 32;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
 }

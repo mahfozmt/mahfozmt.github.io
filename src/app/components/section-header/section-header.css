@@ -2,24 +2,42 @@
   display: flex;
   flex-direction: column;
   gap: 8px;
-  margin-bottom: 40px;
+  margin-bottom: 36px;
+}
+.section-eyebrow-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.eyebrow-bracket {
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--success);
 }
 .section-eyebrow {
-  font-size: 0.85rem;
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.1em;
   color: var(--primary);
 }
+.eyebrow-line {
+  width: 64px;
+  height: 1px;
+  background: linear-gradient(90deg, var(--primary), transparent);
+  margin-left: 6px;
+}
 .section-title {
-  font-size: clamp(1.8rem, 3vw, 2.5rem);
+  font-size: clamp(1.75rem, 3vw, 2.35rem);
   font-weight: 800;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.025em;
   line-height: 1.2;
 }
 .section-desc {
-  font-size: 1.05rem;
+  font-size: 0.98rem;
   color: var(--text-muted);
-  max-width: 650px;
-  line-height: 1.6;
+  max-width: 680px;
+  line-height: 1.65;
 }

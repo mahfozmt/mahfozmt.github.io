@@ -1,3 +1,8 @@
-<span class="section-eyebrow">{{ heading().eyebrow }}</span>
+<div class="section-eyebrow-row">
+  <span class="eyebrow-bracket" aria-hidden="true">[</span>
+  <span class="section-eyebrow">{{ heading().eyebrow }}</span>
+  <span class="eyebrow-bracket" aria-hidden="true">]</span>
+  <span class="eyebrow-line" aria-hidden="true"></span>
+</div>
 <h2 [id]="heading().headingId" class="section-title">{{ heading().title }}</h2>
 <p class="section-desc">{{ heading().description }}</p>

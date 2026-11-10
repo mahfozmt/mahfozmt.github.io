@@ -2,8 +2,9 @@
   <div class="container">
     <app-section-header [heading]="heading" />
 
-    <!-- Filter Controls -->
+    <!-- Filter Controls (CLI Flag Style) -->
     <div class="work-filter-bar" role="tablist" aria-label="Filter case studies">
+      <span class="filter-cli-prompt" aria-hidden="true">$ query --scope=</span>
       @for (filter of filters; track filter.id) {
         <button
           class="filter-btn"
@@ -20,78 +21,98 @@
     </div>
 
     <div class="cases-list">
-      @for (study of visibleCases(); track study.id) {
+      @for (study of visibleCases(); track study.id; let idx = $index) {
         <article class="case-card" [attr.data-category]="study.categories.join(' ')">
-          <div class="case-header">
-            <div class="case-title-group">
-              <div class="case-header-primary">
-                @if (study.logoUrl) {
-                  <div
-                    class="project-brand-badge"
-                    [class.svg-logo]="study.logoUrl.endsWith('.svg')"
-                  >
-                    <img
-                      [src]="study.logoUrl"
-                      [alt]="study.logoAlt || study.company + ' logo'"
-                      class="project-logo-img"
-                      loading="lazy"
-                    />
-                  </div>
-                }
-                <div class="case-headings">
-                  <h3 class="case-title">
-                    <span>{{ study.title }}</span>
-                  </h3>
-                  <div class="case-meta">
-                    <span class="meta-company"><strong>Company:</strong> {{ study.company }}</span>
-                    <span class="meta-sep" aria-hidden="true">·</span>
-                    <span>{{ study.period }}</span>
-                    <span class="meta-sep" aria-hidden="true">·</span>
-                    <a [href]="study.site.url" target="_blank" rel="noopener">
-                      {{ study.site.label }}
-                      <svg
-                        width="14"
-                        height="14"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="2"
-                      >
-                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
-                        <polyline points="15 3 21 3 21 9" />
-                        <line x1="10" y1="14" x2="21" y2="3" />
-                      </svg>
-                    </a>
+          <!-- IDE Module Chrome Strip -->
+          <div class="case-window-chrome" aria-hidden="true">
+            <div class="chrome-left">
+              <span class="dot red"></span>
+              <span class="dot yellow"></span>
+              <span class="dot green"></span>
+              <span class="chrome-path">~/production/case-0{{ idx + 1 }}/{{ study.id }}.sln</span>
+            </div>
+            <div class="chrome-right">
+              <span class="chrome-status">BUILD: VERIFIED</span>
+            </div>
+          </div>
+
+          <div class="case-inner">
+            <div class="case-header">
+              <div class="case-title-group">
+                <div class="case-header-primary">
+                  @if (study.logoUrl) {
+                    <div
+                      class="project-brand-badge"
+                      [class.svg-logo]="study.logoUrl.endsWith('.svg')"
+                    >
+                      <img
+                        [src]="study.logoUrl"
+                        [alt]="study.logoAlt || study.company + ' logo'"
+                        class="project-logo-img"
+                        loading="lazy"
+                      />
+                    </div>
+                  }
+                  <div class="case-headings">
+                    <h3 class="case-title">
+                      <span>{{ study.title }}</span>
+                    </h3>
+                    <div class="case-meta">
+                      <span class="meta-company"><strong>Company:</strong> {{ study.company }}</span>
+                      <span class="meta-sep" aria-hidden="true">·</span>
+                      <span>{{ study.period }}</span>
+                      <span class="meta-sep" aria-hidden="true">·</span>
+                      <a [href]="study.site.url" target="_blank" rel="noopener">
+                        {{ study.site.label }}
+                        <svg
+                          width="14"
+                          height="14"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="2"
+                        >
+                          <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                          <polyline points="15 3 21 3 21 9" />
+                          <line x1="10" y1="14" x2="21" y2="3" />
+                        </svg>
+                      </a>
+                    </div>
                   </div>
                 </div>
               </div>
+              <span class="badge">{{ study.badge }}</span>
             </div>
-            <span class="badge">{{ study.badge }}</span>
+
+            <div class="case-body-grid">
+              <div class="case-col">
+                <h4>
+                  <span class="col-tag" aria-hidden="true">01 //</span> Product Scope &amp; Mission
+                </h4>
+                <p>{{ study.scope }}</p>
+              </div>
+
+              <div class="case-col">
+                <h4>
+                  <span class="col-tag" aria-hidden="true">02 //</span> Key Engineering
+                  Contributions
+                </h4>
+                <ul class="case-highlights">
+                  @for (highlight of study.highlights; track highlight.label) {
+                    <li>
+                      <strong>{{ highlight.label }}:</strong> {{ highlight.text }}
+                    </li>
+                  }
+                </ul>
+              </div>
+            </div>
+
+            @if (study.architecture; as flow) {
+              <app-arch-flow [flow]="flow" />
+            }
+
+            <app-chip-list [chips]="study.chips" />
           </div>
-
-          <div class="case-body-grid">
-            <div class="case-col">
-              <h4>Product Scope &amp; Mission</h4>
-              <p>{{ study.scope }}</p>
-            </div>
-
-            <div class="case-col">
-              <h4>Key Engineering Contributions</h4>
-              <ul class="case-highlights">
-                @for (highlight of study.highlights; track highlight.label) {
-                  <li>
-                    <strong>{{ highlight.label }}:</strong> {{ highlight.text }}
-                  </li>
-                }
-              </ul>
-            </div>
-          </div>
-
-          @if (study.architecture; as flow) {
-            <app-arch-flow [flow]="flow" />
-          }
-
-          <app-chip-list [chips]="study.chips" />
         </article>
       }
     </div>

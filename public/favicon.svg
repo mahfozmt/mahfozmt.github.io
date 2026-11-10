@@ -1,16 +1,16 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
   <defs>
     <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#1c1c24"/>
-      <stop offset="100%" stop-color="#121216"/>
+      <stop offset="0%" stop-color="#111621"/>
+      <stop offset="100%" stop-color="#080b11"/>
     </linearGradient>
   </defs>
   <!-- Background Badge -->
-  <rect x="2" y="2" width="60" height="60" rx="14" fill="url(#bgGrad)" stroke="#de7754" stroke-width="2.5" stroke-opacity="0.85"/>
+  <rect x="2" y="2" width="60" height="60" rx="10" fill="url(#bgGrad)" stroke="#00f2fe" stroke-width="2.5" stroke-opacity="0.85"/>
   <!-- Inner subtle glow border -->
-  <rect x="4" y="4" width="56" height="56" rx="12" fill="none" stroke="#de7754" stroke-width="1" stroke-opacity="0.15"/>
+  <rect x="5" y="5" width="54" height="54" rx="7" fill="none" stroke="#10b981" stroke-width="1" stroke-opacity="0.3"/>
   <!-- Terminal Prompt & Initials -->
   <text x="32" y="39" font-family="'JetBrains Mono', 'Fira Code', 'SF Mono', Consolas, Menlo, Monaco, monospace" font-size="20" font-weight="800" text-anchor="middle" letter-spacing="-0.5px">
-    <tspan fill="#de7754">&gt;_</tspan><tspan fill="#f4f3ee" dx="1.5">MR</tspan>
+    <tspan fill="#00f2fe">&gt;_</tspan><tspan fill="#e6edf3" dx="1.5">MR</tspan>
   </text>
 </svg>
