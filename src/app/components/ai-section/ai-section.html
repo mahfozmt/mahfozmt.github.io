@@ -3,8 +3,8 @@
     <app-section-header [heading]="heading" />
 
     <div class="os-grid ai-grid">
-      @for (card of cards; track card.title) {
-        <div class="os-card">
+      @for (card of cards; track card.title; let idx = $index) {
+        <div class="os-card" [attr.data-card-theme]="idx === 0 ? 'ai-workflow' : 'biztraq'">
           <div>
             <div class="os-card-header">
               <span class="os-card-title">{{ card.title }}</span>

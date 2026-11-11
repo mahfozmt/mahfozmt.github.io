@@ -1,40 +1,39 @@
-<section id="experience" class="section" [attr.aria-labelledby]="heading.headingId">
+<section class="section" id="experience" [attr.aria-labelledby]="heading.headingId">
   <div class="container">
     <app-section-header [heading]="heading" />
 
     <div class="timeline-container">
-      <!-- Animated SVG Git Branch Rail -->
-      <svg class="git-rail-svg" aria-hidden="true" preserveAspectRatio="none">
-        <line x1="8" y1="0" x2="8" y2="100%" stroke="var(--border)" stroke-width="2" />
+      <!-- Animated Vertical Timeline Rail -->
+      <svg class="git-rail-svg" viewBox="0 0 16 600" preserveAspectRatio="none" aria-hidden="true">
+        <line
+          x1="8"
+          y1="0"
+          x2="8"
+          y2="600"
+          stroke="rgba(56, 189, 248, 0.22)"
+          stroke-width="2"
+          stroke-dasharray="4 4"
+        />
         <line
           class="git-rail-pulse"
           x1="8"
           y1="0"
           x2="8"
-          y2="100%"
+          y2="600"
           stroke="var(--primary)"
-          stroke-width="2"
+          stroke-width="2.5"
           stroke-dasharray="60 280"
         />
       </svg>
 
-      @for (entry of entries; track entry.id; let idx = $index) {
-        <div class="timeline-item" [class.current]="entry.current">
-          <div class="timeline-marker" aria-hidden="true"></div>
+      @for (entry of entries; track entry.id) {
+        <div
+          class="timeline-item"
+          [class.current]="entry.current"
+          [attr.data-card-theme]="entry.id"
+        >
+          <div class="timeline-marker"></div>
           <div class="timeline-card">
-            <!-- Git Commit Header Strip -->
-            <div class="git-commit-bar" aria-hidden="true">
-              <span class="commit-sha">
-                <svg viewBox="0 0 16 16" width="12" height="12" fill="none" stroke="currentColor" stroke-width="1.6">
-                  <circle cx="8" cy="8" r="3" />
-                  <line x1="1" y1="8" x2="5" y2="8" />
-                  <line x1="11" y1="8" x2="15" y2="8" />
-                </svg>
-                commit {{ entry.current ? 'HEAD -> main, origin/prod' : 'tag: v' + (entries.length - idx) + '.0-release' }}
-              </span>
-              <span class="commit-status">{{ entry.current ? 'ACTIVE_RUNTIME' : 'MERGED' }}</span>
-            </div>
-
             <div class="timeline-top">
               <div class="role-header-group">
                 @if (entry.logoUrl) {
@@ -44,20 +43,24 @@
                       [alt]="entry.logoAlt || entry.company + ' logo'"
                       class="exp-logo-img"
                       loading="lazy"
+                      decoding="async"
                     />
                   </div>
                 }
                 <div class="role-meta-group">
-                  <h3 class="role-title">{{ entry.title }}</h3>
+                  <div class="role-title">{{ entry.title }}</div>
                   <div class="company-name">
                     {{ entry.company }}
                     @if (entry.employmentType) {
                       · {{ entry.employmentType }}
                     }
                   </div>
+                  @if (entry.sectorTag) {
+                    <div class="exp-sector-tag">{{ entry.sectorTag }}</div>
+                  }
                 </div>
               </div>
-              <div class="timeline-date">{{ entry.dates }} · {{ entry.location }}</div>
+              <span class="timeline-date">{{ entry.dates }} · {{ entry.location }}</span>
             </div>
             <div class="timeline-body">
               <p [innerHTML]="entry.summaryHtml"></p>

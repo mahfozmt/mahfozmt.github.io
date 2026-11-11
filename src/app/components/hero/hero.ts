@@ -1,12 +1,11 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 
-import { ChipList } from '../chip-list/chip-list';
-import { CopyEmail } from '../../directives/copy-email';
 import { HERO, PROFILE } from '../../data/profile.data';
+import { CopyEmail } from '../../directives/copy-email';
 
 @Component({
   selector: 'app-hero',
-  imports: [ChipList, CopyEmail],
+  imports: [CopyEmail],
   templateUrl: './hero.html',
   styleUrl: './hero.css',
   changeDetection: ChangeDetectionStrategy.OnPush,

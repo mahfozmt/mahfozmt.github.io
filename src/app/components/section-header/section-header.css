@@ -7,33 +7,28 @@
 .section-eyebrow-row {
   display: flex;
   align-items: center;
-  gap: 6px;
-}
-.eyebrow-bracket {
-  font-family: var(--font-mono);
-  font-size: 0.82rem;
-  font-weight: 700;
-  color: var(--success);
+  gap: 10px;
 }
 .section-eyebrow {
-  font-family: var(--font-mono);
-  font-size: 0.76rem;
+  font-family: var(--font-main);
+  font-size: 0.78rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.1em;
   color: var(--primary);
 }
 .eyebrow-line {
-  width: 64px;
-  height: 1px;
+  width: 56px;
+  height: 2px;
   background: linear-gradient(90deg, var(--primary), transparent);
-  margin-left: 6px;
+  border-radius: 2px;
 }
 .section-title {
   font-size: clamp(1.75rem, 3vw, 2.35rem);
   font-weight: 800;
   letter-spacing: -0.025em;
   line-height: 1.2;
+  color: var(--text);
 }
 .section-desc {
   font-size: 0.98rem;

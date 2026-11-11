@@ -1,31 +1,26 @@
 :host {
   display: flex;
   flex-wrap: wrap;
-  gap: 7px;
+  gap: 8px;
 }
 .chip {
   display: inline-flex;
   align-items: center;
   gap: 5px;
-  padding: 4px 10px;
+  padding: 5px 12px;
   background: var(--chip-bg);
-  border: 1px solid var(--chip-border);
-  border-radius: var(--radius-sm);
-  font-size: 0.76rem;
+  border: 1px solid var(--card-border, var(--chip-border));
+  border-radius: var(--radius-full);
+  font-size: 0.78rem;
   font-weight: 600;
   color: var(--chip-text);
-  font-family: var(--font-mono);
+  font-family: var(--font-main);
   transition: all 0.2s ease;
 }
-.chip::before {
-  content: '›';
-  color: var(--primary);
-  font-weight: 800;
-}
 .chip:hover {
-  border-color: var(--primary);
-  color: var(--primary);
-  background: var(--primary-soft);
+  border-color: var(--card-accent, var(--primary));
+  color: var(--card-accent, var(--primary));
+  background: var(--card-accent-soft, var(--primary-soft));
   transform: translateY(-1px);
 }
 .chip svg {

@@ -31,6 +31,8 @@ export interface CaseStudy {
   readonly period: string;
   readonly site: ExternalSite;
   readonly badge: string;
+  readonly sectorTag?: string;
+  readonly domainFeatures?: readonly string[];
   readonly categories: readonly CaseCategory[];
   readonly scope: string;
   readonly highlights: readonly Highlight[];

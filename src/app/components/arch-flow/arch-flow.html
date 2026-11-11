@@ -1,47 +1,35 @@
 <div class="arch-head-bar">
-  <span class="arch-label">
-    <span class="arch-label-prefix" aria-hidden="true">// PIPELINE_TOPOLOGY:</span>
-    {{ flow().label }}
-  </span>
-  <span class="arch-live-tag" aria-hidden="true">
-    <span class="arch-live-dot"></span> ACTIVE_BUS
-  </span>
+  <div class="arch-label">{{ flow().label }}</div>
 </div>
 <div class="arch-flow">
-  @for (node of flow().nodes; track node; let idx = $index; let last = $last) {
+  @for (node of flow().nodes; track $index; let idx = $index; let last = $last) {
     <span class="arch-node">
       <span class="arch-node-idx" aria-hidden="true">0{{ idx + 1 }}</span>
       <span>{{ node }}</span>
     </span>
     @if (!last) {
       <span class="arch-arrow" aria-hidden="true">
-        <svg class="arch-wire-svg" viewBox="0 0 36 14" width="32" height="14">
+        <svg class="arch-wire-svg" width="28" height="12" viewBox="0 0 28 12">
           <line
             x1="0"
-            y1="7"
-            x2="28"
-            y2="7"
-            stroke="rgba(0, 242, 254, 0.25)"
+            y1="6"
+            x2="22"
+            y2="6"
+            stroke="var(--card-border, rgba(148, 163, 184, 0.4))"
             stroke-width="1.5"
+            stroke-dasharray="3 2"
           />
           <line
             class="wire-pulse"
             x1="0"
-            y1="7"
-            x2="28"
-            y2="7"
-            stroke="var(--primary)"
+            y1="6"
+            x2="22"
+            y2="6"
+            stroke="var(--card-accent, var(--primary))"
             stroke-width="2"
-            stroke-dasharray="8 24"
+            stroke-dasharray="6 22"
           />
-          <polyline
-            points="24 3 31 7 24 11"
-            fill="none"
-            stroke="var(--primary)"
-            stroke-width="1.8"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          />
+          <polygon points="21,2.5 27,6 21,9.5" fill="var(--card-accent, var(--primary))" />
         </svg>
       </span>
     }

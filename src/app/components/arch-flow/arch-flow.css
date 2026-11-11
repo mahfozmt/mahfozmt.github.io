@@ -1,7 +1,7 @@
 :host {
-  background: var(--bg-alt);
-  border: 1px solid var(--border);
-  border-left: 3px solid var(--primary);
+  background: rgba(15, 23, 42, 0.38);
+  border: 1px solid var(--card-border, var(--border));
+  border-left: 3px solid var(--card-accent, var(--primary));
   border-radius: var(--radius-md);
   padding: 14px 18px;
   display: flex;
@@ -9,6 +9,10 @@
   gap: 10px;
   position: relative;
   overflow: hidden;
+}
+
+:host-context([data-theme='light']) {
+  background: rgba(255, 255, 255, 0.78);
 }
 
 .arch-head-bar {
@@ -19,47 +23,12 @@
 }
 
 .arch-label {
-  font-family: var(--font-mono);
-  font-size: 0.72rem;
+  font-family: var(--font-main);
+  font-size: 0.74rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.06em;
-  color: var(--text-muted);
-}
-
-.arch-label-prefix {
-  color: var(--primary);
-  margin-right: 4px;
-}
-
-.arch-live-tag {
-  display: inline-flex;
-  align-items: center;
-  gap: 5px;
-  font-family: var(--font-mono);
-  font-size: 0.64rem;
-  font-weight: 700;
-  color: var(--success-text);
-  letter-spacing: 0.06em;
-}
-
-.arch-live-dot {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: var(--success);
-  box-shadow: 0 0 6px var(--success);
-  animation: wire-blink 1.5s infinite;
-}
-
-@keyframes wire-blink {
-  0%,
-  100% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0.35;
-  }
+  color: var(--card-accent, var(--text-muted));
 }
 
 .arch-flow {
@@ -67,36 +36,36 @@
   flex-wrap: wrap;
   align-items: center;
   gap: 6px;
-  font-size: 0.82rem;
-  font-family: var(--font-mono);
+  font-size: 0.83rem;
+  font-family: var(--font-main);
 }
 
 .arch-node {
   background: var(--surface);
-  border: 1px solid var(--border);
-  padding: 5px 11px;
+  border: 1px solid var(--card-border, var(--border));
+  padding: 6px 12px;
   border-radius: var(--radius-sm);
   font-weight: 600;
   color: var(--text);
   display: inline-flex;
   align-items: center;
   gap: 7px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
   transition: all 0.2s ease;
 }
 
 .arch-node:hover {
-  border-color: var(--primary);
+  border-color: var(--card-accent, var(--primary));
   transform: translateY(-1px);
-  box-shadow: 0 0 10px -2px var(--primary-glow);
 }
 
 .arch-node-idx {
-  font-size: 0.65rem;
-  color: var(--primary);
-  background: var(--primary-soft);
-  padding: 1px 5px;
-  border-radius: 3px;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  color: var(--card-accent, var(--primary));
+  background: var(--card-accent-soft, var(--primary-soft));
+  padding: 1px 6px;
+  border-radius: 4px;
   font-weight: 700;
 }
 
@@ -111,13 +80,13 @@
 }
 
 .wire-pulse {
-  stroke-dashoffset: 32;
-  animation: wire-packet 1.4s linear infinite;
+  stroke-dashoffset: 28;
+  animation: wire-packet 1.5s linear infinite;
 }
 
 @keyframes wire-packet {
   0% {
-    stroke-dashoffset: 32;
+    stroke-dashoffset: 28;
   }
   100% {
     stroke-dashoffset: 0;

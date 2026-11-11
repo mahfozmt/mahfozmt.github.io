@@ -6,17 +6,13 @@ header.top-nav {
   position: sticky;
   top: 0;
   z-index: 100;
-  background: rgba(15, 19, 28, 0.88);
+  background: var(--nav-bg);
   backdrop-filter: blur(16px) saturate(180%);
   -webkit-backdrop-filter: blur(16px) saturate(180%);
   border-bottom: 1px solid var(--border);
   transition:
     border-color 0.3s ease,
     background 0.3s ease;
-}
-
-[data-theme='light'] header.top-nav {
-  background: rgba(255, 255, 255, 0.9);
 }
 
 .nav-wrapper {
@@ -47,35 +43,29 @@ header.top-nav {
   width: 36px;
   height: 36px;
   border-radius: var(--radius-sm);
-  background: var(--surface-elevated);
-  border: 1px solid rgba(0, 242, 254, 0.3);
+  background: linear-gradient(135deg, #0284c7 0%, #2563eb 100%);
+  border: 1px solid rgba(56, 189, 248, 0.35);
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 2px;
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
+  font-family: var(--font-main);
+  font-size: 0.82rem;
   font-weight: 800;
-  color: var(--primary);
-  box-shadow: 0 0 10px -2px rgba(0, 242, 254, 0.25);
+  color: #ffffff;
+  box-shadow: 0 3px 10px -2px rgba(2, 132, 199, 0.4);
   flex-shrink: 0;
   transition: all 0.25s ease;
 }
 
 .brand-logo:hover .brand-icon {
-  border-color: var(--primary);
-  box-shadow: 0 0 16px -2px rgba(0, 242, 254, 0.45);
-}
-
-.brand-terminal {
-  color: var(--primary);
-  font-size: 0.75rem;
-  font-weight: 700;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 14px -2px rgba(2, 132, 199, 0.55);
 }
 
 .brand-initials {
-  color: var(--text);
+  color: #ffffff;
   font-weight: 800;
+  letter-spacing: -0.02em;
 }
 
 .brand-title {
@@ -96,30 +86,13 @@ header.top-nav {
 }
 
 .brand-title span.title {
-  font-family: var(--font-mono);
-  font-size: 0.7rem;
-  color: var(--primary);
+  font-family: var(--font-main);
+  font-size: 0.74rem;
+  font-weight: 500;
+  color: var(--text-muted);
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  letter-spacing: 0.02em;
-}
-
-.header-status-beacon {
-  display: none;
-  align-items: center;
-  gap: 8px;
-  padding-left: 14px;
-  border-left: 1px solid var(--border);
-  font-family: var(--font-mono);
-  font-size: 0.68rem;
-  color: var(--text-muted);
-}
-
-@media (min-width: 1200px) {
-  .header-status-beacon {
-    display: inline-flex;
-  }
 }
 
 nav.desktop-nav {
@@ -134,11 +107,11 @@ nav.desktop-nav {
 
 nav.desktop-nav a {
   white-space: nowrap;
-  font-family: var(--font-mono);
-  font-size: 0.76rem;
-  letter-spacing: 0.02em;
+  font-family: var(--font-main);
+  font-size: 0.82rem;
+  font-weight: 500;
   color: var(--text-muted);
-  padding: 6px 12px;
+  padding: 6px 13px;
   border-radius: var(--radius-full);
   transition: all 0.2s ease;
   text-decoration: none;
@@ -150,9 +123,9 @@ nav.desktop-nav a:hover {
 
 nav.desktop-nav a.active {
   color: var(--text);
+  font-weight: 600;
   background: var(--surface-elevated);
-  border: 1px solid rgba(0, 242, 254, 0.3);
-  box-shadow: 0 0 10px -2px rgba(0, 242, 254, 0.2);
+  border: 1px solid var(--border);
 }
 
 .nav-actions {
@@ -168,7 +141,7 @@ nav.desktop-nav a.active {
   justify-content: center;
   width: 38px;
   height: 38px;
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-sm);
   border: 1px solid var(--border);
   background: var(--surface);
   color: var(--text-muted);
@@ -185,24 +158,6 @@ nav.desktop-nav a.active {
 .btn-icon svg {
   width: 18px;
   height: 18px;
-}
-
-.nav-actions .btn.btn-primary {
-  background: rgba(0, 242, 254, 0.08);
-  border: 1px solid rgba(0, 242, 254, 0.35);
-  color: var(--primary) !important;
-  font-family: var(--font-mono);
-  font-size: 0.78rem;
-  letter-spacing: 0.06em;
-  font-weight: 700;
-  box-shadow: 0 0 12px -3px rgba(0, 242, 254, 0.2);
-}
-
-.nav-actions .btn.btn-primary:hover {
-  background: rgba(0, 242, 254, 0.16);
-  border-color: var(--primary);
-  box-shadow: 0 0 16px -2px rgba(0, 242, 254, 0.35);
-  transform: translateY(-1px);
 }
 
 .mobile-menu-toggle {
@@ -233,7 +188,7 @@ nav.desktop-nav a.active {
 }
 
 .mobile-nav-drawer a:not(.btn) {
-  font-family: var(--font-mono);
+  font-family: var(--font-main);
   font-size: 1.05rem;
   font-weight: 600;
   color: var(--text);

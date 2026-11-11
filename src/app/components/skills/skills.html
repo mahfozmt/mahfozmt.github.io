@@ -4,17 +4,15 @@
   [attr.aria-labelledby]="heading.headingId"
 >
   <div class="container">
-    <div class="skills-header-row">
-      <app-section-header [heading]="heading" />
-      <div class="telemetry-pill">
-        <span class="pulse-dot"></span>
-        <span>PRODUCTION-PROVEN MATRIX</span>
-      </div>
-    </div>
+    <app-section-header [heading]="heading" />
 
     <div class="skills-grid">
       @for (group of groups; track group.id) {
-        <div class="skill-card" [class.skill-card-wide]="group.wide">
+        <div
+          class="skill-card"
+          [class.skill-card-wide]="group.wide"
+          [attr.data-card-theme]="group.id"
+        >
           <div class="skill-card-head">
             <div class="skill-card-icon">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -52,9 +50,6 @@
               </svg>
             </div>
             <div>
-              <span class="skill-category-tag"
-                >LAYER // {{ group.id.replace('-', '_').toUpperCase() }}</span
-              >
               <h3 class="skill-card-title">{{ group.title }}</h3>
             </div>
           </div>

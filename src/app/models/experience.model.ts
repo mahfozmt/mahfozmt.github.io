@@ -4,6 +4,8 @@ export interface ExperienceEntry {
   readonly company: string;
   readonly logoUrl?: string;
   readonly logoAlt?: string;
+  /** Sector and business domain context for the company. */
+  readonly sectorTag?: string;
   /** Employment type shown after the company, for example `Full-time`. */
   readonly employmentType?: string;
   /** Date range, for example `Aug 2023 – Present`. */

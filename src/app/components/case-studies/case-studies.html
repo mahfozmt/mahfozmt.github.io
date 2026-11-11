@@ -1,18 +1,16 @@
-<section id="work" class="section" [attr.aria-labelledby]="heading.headingId">
+<section class="section" id="work" [attr.aria-labelledby]="heading.headingId">
   <div class="container">
     <app-section-header [heading]="heading" />
 
-    <!-- Filter Controls (CLI Flag Style) -->
-    <div class="work-filter-bar" role="tablist" aria-label="Filter case studies">
-      <span class="filter-cli-prompt" aria-hidden="true">$ query --scope=</span>
+    <!-- Interactive Category Filter -->
+    <div class="work-filter-bar" role="tablist" aria-label="Filter projects by category">
       @for (filter of filters; track filter.id) {
         <button
           class="filter-btn"
-          type="button"
-          role="tab"
           [class.active]="activeFilter() === filter.id"
-          [attr.data-filter]="filter.id"
+          role="tab"
           [attr.aria-selected]="activeFilter() === filter.id"
+          [attr.data-filter]="filter.id"
           (click)="select(filter.id)"
         >
           {{ filter.label }}
@@ -21,21 +19,9 @@
     </div>
 
     <div class="cases-list">
-      @for (study of visibleCases(); track study.id; let idx = $index) {
-        <article class="case-card" [attr.data-category]="study.categories.join(' ')">
-          <!-- IDE Module Chrome Strip -->
-          <div class="case-window-chrome" aria-hidden="true">
-            <div class="chrome-left">
-              <span class="dot red"></span>
-              <span class="dot yellow"></span>
-              <span class="dot green"></span>
-              <span class="chrome-path">~/production/case-0{{ idx + 1 }}/{{ study.id }}.sln</span>
-            </div>
-            <div class="chrome-right">
-              <span class="chrome-status">BUILD: VERIFIED</span>
-            </div>
-          </div>
-
+      @for (study of visibleCases(); track study.id) {
+        <article class="case-card" [attr.data-card-theme]="study.id">
+          <span class="case-ambient-glow" aria-hidden="true"></span>
           <div class="case-inner">
             <div class="case-header">
               <div class="case-title-group">
@@ -50,6 +36,7 @@
                         [alt]="study.logoAlt || study.company + ' logo'"
                         class="project-logo-img"
                         loading="lazy"
+                        decoding="async"
                       />
                     </div>
                   }
@@ -58,23 +45,22 @@
                       <span>{{ study.title }}</span>
                     </h3>
                     <div class="case-meta">
-                      <span class="meta-company"><strong>Company:</strong> {{ study.company }}</span>
-                      <span class="meta-sep" aria-hidden="true">·</span>
+                      <span>{{ study.company }}</span>
+                      <span>•</span>
                       <span>{{ study.period }}</span>
-                      <span class="meta-sep" aria-hidden="true">·</span>
+                      <span>•</span>
                       <a [href]="study.site.url" target="_blank" rel="noopener">
                         {{ study.site.label }}
                         <svg
-                          width="14"
-                          height="14"
+                          width="13"
+                          height="13"
                           viewBox="0 0 24 24"
                           fill="none"
                           stroke="currentColor"
-                          stroke-width="2"
+                          stroke-width="2.5"
+                          aria-hidden="true"
                         >
-                          <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
-                          <polyline points="15 3 21 3 21 9" />
-                          <line x1="10" y1="14" x2="21" y2="3" />
+                          <path d="M7 17L17 7M17 7H7M17 7V17" />
                         </svg>
                       </a>
                     </div>
@@ -84,31 +70,98 @@
               <span class="badge">{{ study.badge }}</span>
             </div>
 
+            @if (study.sectorTag || study.domainFeatures?.length) {
+              <div class="case-domain-panel">
+                @if (study.sectorTag) {
+                  <div class="domain-sector-head">
+                    <span class="domain-sector-icon" aria-hidden="true">
+                      @switch (study.id) {
+                        @case ('biztraq') {
+                          <svg
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                          >
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                            <polyline points="14 2 14 8 20 8" />
+                            <line x1="16" y1="13" x2="8" y2="13" />
+                            <line x1="16" y1="17" x2="8" y2="17" />
+                          </svg>
+                        }
+                        @case ('livinghub') {
+                          <svg
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                          >
+                            <path d="M3 21h18M5 21V7l8-4v18M19 21V11l-6-4" />
+                            <path d="M9 9v.01M9 12v.01M9 15v.01M9 18v.01" />
+                          </svg>
+                        }
+                        @case ('autoguard-tracking') {
+                          <svg
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                          >
+                            <path
+                              d="M12 2a8 8 0 0 0-8 8c0 5.25 8 12 8 12s8-6.75 8-12a8 8 0 0 0-8-8z"
+                            />
+                            <circle cx="12" cy="10" r="3" />
+                          </svg>
+                        }
+                        @default {
+                          <svg
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                          >
+                            <polygon
+                              points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+                            />
+                          </svg>
+                        }
+                      }
+                    </span>
+                    <span class="domain-sector-label">{{ study.sectorTag }}</span>
+                  </div>
+                }
+                @if (study.domainFeatures?.length) {
+                  <div class="domain-features-grid">
+                    @for (feat of study.domainFeatures; track feat) {
+                      <span class="domain-feature-pill">
+                        <span class="domain-feature-dot" aria-hidden="true"></span>
+                        {{ feat }}
+                      </span>
+                    }
+                  </div>
+                }
+              </div>
+            }
+
             <div class="case-body-grid">
               <div class="case-col">
-                <h4>
-                  <span class="col-tag" aria-hidden="true">01 //</span> Product Scope &amp; Mission
-                </h4>
+                <h4>Platform Overview &amp; Business Logic</h4>
                 <p>{{ study.scope }}</p>
               </div>
-
               <div class="case-col">
-                <h4>
-                  <span class="col-tag" aria-hidden="true">02 //</span> Key Engineering
-                  Contributions
-                </h4>
+                <h4>My Engineering Contributions</h4>
                 <ul class="case-highlights">
-                  @for (highlight of study.highlights; track highlight.label) {
+                  @for (item of study.highlights; track item.label) {
                     <li>
-                      <strong>{{ highlight.label }}:</strong> {{ highlight.text }}
+                      <strong>{{ item.label }}:</strong> {{ item.text }}
                     </li>
                   }
                 </ul>
               </div>
             </div>
 
-            @if (study.architecture; as flow) {
-              <app-arch-flow [flow]="flow" />
+            @if (study.architecture; as arch) {
+              <app-arch-flow [flow]="arch" />
             }
 
             <app-chip-list [chips]="study.chips" />

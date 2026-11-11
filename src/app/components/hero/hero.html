@@ -1,204 +1,148 @@
-<section class="hero-section" aria-labelledby="hero-title">
+<section class="hero-section">
   <div class="container">
     <div class="hero-bento-grid">
-      <!-- Left Column: IDE Editor Chrome + Primary Positioning & Actions -->
-      <div class="hero-content-card">
-        <!-- IDE Tab Bar Chrome -->
-        <div class="ide-window-bar" aria-hidden="true">
-          <div class="ide-dots">
-            <span class="dot red"></span>
-            <span class="dot yellow"></span>
-            <span class="dot green"></span>
-          </div>
-          <div class="ide-tabs">
-            <span class="ide-tab active">
-              <svg viewBox="0 0 16 16" width="12" height="12" fill="none" stroke="currentColor" stroke-width="1.6">
-                <polyline points="4 11 8 7 4 3" />
-                <line x1="9" y1="12" x2="13" y2="12" />
-              </svg>
-              Architecture.cs
-            </span>
-            <span class="ide-tab">signal-state.ts</span>
-            <span class="ide-tab">azure-pipeline.yml</span>
-          </div>
-          <div class="ide-git-branch">
-            <svg viewBox="0 0 16 16" width="12" height="12" fill="none" stroke="currentColor" stroke-width="1.6">
-              <circle cx="4" cy="3.5" r="2" />
-              <circle cx="4" cy="12.5" r="2" />
-              <circle cx="12" cy="6.5" r="2" />
-              <path d="M4 5.5v5M12 8.5c0 2.5-3 2.5-8 2.5" />
-            </svg>
-            <span>main</span>
-          </div>
-        </div>
-
-        <div class="ide-editor-body">
-          <!-- Line Numbers Gutter -->
-          <div class="ide-gutter" aria-hidden="true">
-            <span>01</span>
-            <span>02</span>
-            <span>03</span>
-            <span>04</span>
-            <span>05</span>
-            <span>06</span>
-            <span>07</span>
-            <span>08</span>
-            <span>09</span>
-            <span>10</span>
-            <span>11</span>
-            <span>12</span>
-          </div>
-
-          <div class="ide-main-pane">
-            <div class="telemetry-badge-row">
+      <!-- Left Column: Main Introduction Card -->
+      <div class="hero-content-card" data-card-theme="hero-main">
+        <div class="hero-main-pane">
+          <div>
+            <div class="hero-badge-row">
               <div class="status-badge">
                 <span class="pulse-dot"></span>
                 <span>{{ hero.statusText }}</span>
               </div>
-              <div class="mcp-badge">
-                <span class="mcp-icon">✓</span>
-                <span>MCP — Exam 70-486 (Score 933/1000)</span>
-              </div>
               <span class="badge">{{ hero.locationBadge }}</span>
+              <span class="mcp-badge">
+                <svg
+                  width="12"
+                  height="12"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.5"
+                  aria-hidden="true"
+                >
+                  <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
+                </svg>
+                MCP Certified
+              </span>
             </div>
 
-            <div class="code-comment-line" aria-hidden="true">
-              // [SystemArchitect(Runtime = ".NET 8", Frontend = "Angular Signals", Cloud = "Azure")]
-            </div>
-
-            <h1 id="hero-title" class="hero-headline">
-              <span class="sr-only">Mahfozur Rahman: </span>{{ hero.headlineStart
-              }}<span class="gradient-text">{{ hero.headlineHighlight }}</span
-              >{{ hero.headlineEnd }}<span class="cursor-blink" aria-hidden="true"></span>
+            <h1 class="hero-headline">
+              <span class="sr-only">{{ profile.name }} — {{ profile.role }}. </span>
+              {{ hero.headlineStart }}<span class="gradient-text">{{ hero.headlineHighlight }}</span
+              >{{ hero.headlineEnd }}
             </h1>
 
-            <p class="hero-subhead">
-              <span class="prompt-chevron" aria-hidden="true">$</span> {{ hero.subhead }}
-            </p>
+            <p class="hero-subhead">{{ hero.subhead }}</p>
 
             <p class="hero-lead" [innerHTML]="hero.leadHtml"></p>
 
-            <!-- Live Animated Code & Execution Pipeline Graphic -->
-            <div class="hero-live-code-box" aria-hidden="true">
-              <div class="live-code-header">
-                <span class="live-code-title">CQRS_EXECUTION_TRACE // RecordSearchEngine.cs</span>
-                <span class="live-code-status">
-                  <span class="mini-pulse"></span> COMPILING &amp; STREAMING
-                </span>
-              </div>
-              <div class="live-code-content">
-                <div class="code-line">
-                  <span class="ln">1</span>
-                  <span class="kw">public async</span> Task&lt;<span class="tp">PagedResult</span>&gt;
-                  <span class="fn">Handle</span>(<span class="tp">EventSearchQuery</span> q,
-                  <span class="tp">CancellationToken</span> ct)
-                </div>
-                <div class="code-line active-exec-line">
-                  <span class="ln">2</span>
-                  &nbsp;&nbsp;<span class="kw">await</span> _pipeline.<span class="fn">ValidateTenantScopeAsync</span>(q.TenantId, ct);
-                  <span class="exec-badge">1.8ms ✓</span>
-                </div>
-                <div class="code-line">
-                  <span class="ln">3</span>
-                  &nbsp;&nbsp;<span class="kw">return await</span> _searchEngine.<span class="fn">ExecuteCompiledQueryAsync</span>(q, ct);
-                </div>
-              </div>
-              <!-- Animated SVG Data Stream Bar -->
-              <svg class="code-stream-svg" viewBox="0 0 600 10" preserveAspectRatio="none">
-                <line x1="0" y1="5" x2="600" y2="5" stroke="rgba(0,242,254,0.12)" stroke-width="2" />
-                <line
-                  class="stream-beam"
-                  x1="0"
-                  y1="5"
-                  x2="600"
-                  y2="5"
-                  stroke="#00f2fe"
-                  stroke-width="2"
-                  stroke-dasharray="80 520"
-                />
-              </svg>
-            </div>
-
-            <!-- Core Architecture Badges Row -->
             <div class="hero-arch-badges">
-              <span class="telemetry-chip">.NET 8</span>
-              <span class="telemetry-chip">ASP.NET Core Web API</span>
-              <span class="telemetry-chip">Angular (Signals &amp; Standalone)</span>
-              <span class="telemetry-chip">MediatR CQRS</span>
-              <span class="telemetry-chip">SQL Server &amp; EF Core</span>
-              <span class="telemetry-chip">Microsoft Azure</span>
+              @for (chip of hero.cardChips; track chip) {
+                <span class="telemetry-chip">{{ chip }}</span>
+              }
             </div>
+          </div>
+
+          <div class="hero-footer-group">
+            <svg
+              class="code-stream-svg"
+              viewBox="0 0 600 6"
+              preserveAspectRatio="none"
+              aria-hidden="true"
+            >
+              <line
+                x1="0"
+                y1="3"
+                x2="600"
+                y2="3"
+                stroke="rgba(56, 189, 248, 0.16)"
+                stroke-width="2"
+              />
+              <line
+                class="stream-beam"
+                x1="0"
+                y1="3"
+                x2="600"
+                y2="3"
+                stroke="var(--card-accent, var(--primary))"
+                stroke-width="2"
+                stroke-dasharray="90 510"
+              />
+            </svg>
 
             <div class="hero-actions">
-              <a
-                class="btn btn-primary"
-                [href]="profile.cvFile"
-                [attr.download]="profile.cvDownloadName"
-              >
+              <a href="#work" class="btn btn-primary">
                 <svg
                   viewBox="0 0 24 24"
                   fill="none"
                   stroke="currentColor"
                   stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <polyline points="16 18 22 12 16 6" />
+                  <polyline points="8 6 2 12 8 18" />
+                </svg>
+                View Production Work
+              </a>
+              <a [href]="profile.cvFile" [attr.download]="profile.cvDownloadName" class="btn">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
                   aria-hidden="true"
                 >
                   <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
-                  <path d="M7 10l5 5 5-5" />
-                  <path d="M12 15V3" />
+                  <polyline points="7 10 12 15 17 10" />
+                  <line x1="12" y1="15" x2="12" y2="3" />
                 </svg>
                 Download CV
               </a>
-
               <button
+                type="button"
                 class="btn"
                 id="copyEmailHeroBtn"
-                type="button"
                 [appCopyEmail]="profile.email"
-                [attr.data-email]="profile.email"
+                aria-label="Copy email address to clipboard"
               >
                 <svg
                   viewBox="0 0 24 24"
                   fill="none"
                   stroke="currentColor"
                   stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
                   aria-hidden="true"
                 >
-                  <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
-                  <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                  <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
+                  <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
                 </svg>
                 Copy Email
               </button>
-
               <a
-                class="btn btn-icon-only"
                 [href]="profile.linkedInUrl"
                 target="_blank"
                 rel="noopener"
+                class="btn-icon-only"
                 aria-label="LinkedIn Profile"
-                title="LinkedIn Profile"
+                title="LinkedIn"
               >
                 <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                   <path
-                    d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"
+                    d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"
                   />
                 </svg>
               </a>
-
               <a
-                class="btn btn-icon-only"
                 [href]="profile.gitHubUrl"
                 target="_blank"
                 rel="noopener"
+                class="btn-icon-only"
                 aria-label="GitHub Profile"
-                title="GitHub Profile"
+                title="GitHub"
               >
                 <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                   <path
-                    d="M12 .3a12 12 0 0 0-3.8 23.38c.6.12.83-.26.83-.57v-2.04c-3.34.73-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.09-.75.08-.73.08-.73 1.2.08 1.84 1.24 1.84 1.24 1.07 1.83 2.81 1.3 3.5 1 .1-.78.42-1.31.76-1.61-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.13-.3-.54-1.52.12-3.18 0 0 1-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.28-1.55 3.29-1.23 3.29-1.23.66 1.66.25 2.88.12 3.18.77.84 1.24 1.91 1.24 3.22 0 4.61-2.81 5.62-5.48 5.92.43.37.81 1.1.81 2.22v3.29c0 .32.22.69.83.57A12 12 0 0 0 12 .3"
+                    d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2Z"
                   />
                 </svg>
               </a>
@@ -207,18 +151,11 @@
         </div>
       </div>
 
-      <!-- Right Column: Bento Visual, Orbital Radar Avatar & Animated Telemetry Cards -->
+      <!-- Right Column: Profile Card + 4 Career Metric Cards -->
       <div class="hero-bento-side">
-        <!-- Profile Identity Tile with Rotating SVG HUD Ring & Live Sparkline -->
-        <div class="bento-profile-card">
-          <div class="profile-top-bar" aria-hidden="true">
-            <span class="profile-sys-id">SYS_IDENT // ARCHITECT_NODE</span>
-            <span class="profile-uptime">UPTIME: 99.98%</span>
-          </div>
-
+        <div class="bento-profile-card" data-card-theme="profile">
           <div class="profile-main-row">
             <div class="avatar-frame">
-              <!-- Animated SVG Orbital Coder Ring -->
               <svg class="avatar-hud-svg" viewBox="0 0 100 100" aria-hidden="true">
                 <circle
                   class="hud-orbit-outer"
@@ -226,9 +163,10 @@
                   cy="50"
                   r="47"
                   fill="none"
-                  stroke="var(--primary)"
-                  stroke-width="1.5"
+                  stroke="var(--card-accent, var(--primary))"
+                  stroke-width="1.4"
                   stroke-dasharray="18 10 6 10"
+                  opacity="0.75"
                 />
                 <circle
                   class="hud-orbit-inner"
@@ -236,138 +174,157 @@
                   cy="50"
                   r="43"
                   fill="none"
-                  stroke="var(--success)"
+                  stroke="#38bdf8"
                   stroke-width="1"
                   stroke-dasharray="8 14"
+                  opacity="0.55"
                 />
               </svg>
               <img
-                class="avatar-img"
                 [src]="profile.photoFile"
                 [alt]="profile.photoAlt"
-                width="96"
-                height="96"
-                loading="eager"
+                class="avatar-img"
+                width="76"
+                height="76"
+                fetchpriority="high"
+                decoding="async"
               />
-              <span class="avatar-online-dot" aria-hidden="true"></span>
+              <span class="avatar-online-dot" title="Available for roles"></span>
             </div>
             <div class="bento-profile-body">
-              <h2 class="profile-name">{{ profile.name }}</h2>
-              <p class="profile-role">{{ profile.role }}</p>
-              <app-chip-list class="profile-chips" [chips]="hero.cardChips" />
+              <div class="profile-name">{{ profile.name }}</div>
+              <div class="profile-role">{{ profile.role }}</div>
+              <div class="profile-location">{{ hero.locationBadge }} · US &amp; BD Production</div>
             </div>
-          </div>
-
-          <!-- Animated SVG Telemetry Waveform Footer -->
-          <div class="profile-telemetry-strip" aria-hidden="true">
-            <div class="telemetry-strip-labels">
-              <span>THROUGHPUT // PROD_CLUSTER</span>
-              <span class="telemetry-val">p99: 14ms</span>
-            </div>
-            <svg class="sparkline-svg" viewBox="0 0 320 28" preserveAspectRatio="none">
-              <defs>
-                <linearGradient id="sparkFill" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="0%" stop-color="rgba(0, 242, 254, 0.3)" />
-                  <stop offset="100%" stop-color="rgba(0, 242, 254, 0)" />
-                </linearGradient>
-              </defs>
-              <path
-                d="M0 22 L20 20 L40 23 L60 14 L80 18 L100 8 L120 16 L140 12 L160 19 L180 6 L200 15 L220 11 L240 17 L260 5 L280 13 L300 9 L320 12 L320 28 L0 28 Z"
-                fill="url(#sparkFill)"
-              />
-              <path
-                class="sparkline-path"
-                d="M0 22 L20 20 L40 23 L60 14 L80 18 L100 8 L120 16 L140 12 L160 19 L180 6 L200 15 L220 11 L240 17 L260 5 L280 13 L300 9 L320 12"
-                fill="none"
-                stroke="var(--primary)"
-                stroke-width="1.75"
-              />
-            </svg>
           </div>
         </div>
 
-        <!-- 4 Bento Metric Cards with Custom Animated SVG Coder Graphics -->
         <div class="hero-bento-metrics">
           @for (stat of hero.stats; track stat.label; let idx = $index) {
-            <div class="bento-stat-card stat-card">
+            <div class="bento-stat-card" [attr.data-card-theme]="'stat-' + idx">
               <div class="stat-top-row">
-                <div class="stat-meta-tag">0{{ idx + 1 }} // TELEMETRY</div>
-                <!-- Custom Animated Coder Graphic per Metric Card -->
+                <div class="stat-number">
+                  {{ stat.prefix }}
+                  @if (stat.highlight) {
+                    <span class="highlight">{{ stat.highlight }}</span>
+                  }
+                  {{ stat.suffix }}
+                </div>
                 <div class="stat-graphic" aria-hidden="true">
-                  @switch (idx) {
-                    @case (0) {
-                      <svg viewBox="0 0 44 24" class="metric-svg">
-                        <path
-                          class="svg-trace"
-                          d="M4 18 L16 18 L24 6 L40 6"
-                          fill="none"
-                          stroke="var(--primary)"
-                          stroke-width="1.8"
-                        />
-                        <circle cx="4" cy="18" r="2.5" fill="var(--primary)" />
-                        <circle cx="16" cy="18" r="2.5" fill="var(--primary)" />
-                        <circle class="svg-node-pulse" cx="40" cy="6" r="3" fill="var(--success)" />
-                      </svg>
-                    }
-                    @case (1) {
-                      <svg viewBox="0 0 44 24" class="metric-svg">
-                        <path
-                          d="M22 2 L32 6 V12 C32 18 22 22 22 22 C22 22 12 18 12 12 V6 Z"
-                          fill="rgba(0, 242, 254, 0.12)"
-                          stroke="var(--primary)"
-                          stroke-width="1.6"
-                        />
-                        <polyline
-                          class="svg-check-pulse"
-                          points="18 12 21 15 27 9"
-                          fill="none"
-                          stroke="var(--success)"
-                          stroke-width="2"
-                        />
-                      </svg>
-                    }
-                    @case (2) {
-                      <svg viewBox="0 0 44 24" class="metric-svg">
-                        <path
-                          class="svg-trace"
-                          d="M4 12 H18 L26 5 H38 M18 12 L26 19 H38"
-                          fill="none"
-                          stroke="var(--primary)"
-                          stroke-width="1.6"
-                        />
-                        <circle cx="6" cy="12" r="2.5" fill="var(--primary)" />
-                        <circle class="svg-node-pulse" cx="38" cy="5" r="2.5" fill="var(--success)" />
-                        <circle class="svg-node-pulse" cx="38" cy="19" r="2.5" fill="var(--primary)" />
-                      </svg>
-                    }
-                    @default {
-                      <svg viewBox="0 0 44 24" class="metric-svg">
-                        <polyline
-                          class="svg-heartbeat"
-                          points="2 14 12 14 16 5 22 20 27 9 31 14 42 14"
-                          fill="none"
-                          stroke="var(--success)"
-                          stroke-width="1.8"
-                        />
-                      </svg>
-                    }
+                  @if (idx === 0) {
+                    <svg class="metric-svg" viewBox="0 0 48 24">
+                      <polyline
+                        fill="none"
+                        stroke="var(--card-accent)"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        points="2,20 12,15 22,16 32,9 44,4"
+                      />
+                      <circle
+                        class="svg-node-pulse"
+                        cx="44"
+                        cy="4"
+                        r="3"
+                        fill="var(--card-accent)"
+                      />
+                    </svg>
+                  } @else if (idx === 1) {
+                    <svg class="metric-svg" viewBox="0 0 48 24">
+                      <line
+                        x1="10"
+                        y1="18"
+                        x2="24"
+                        y2="6"
+                        stroke="var(--card-accent)"
+                        stroke-width="1.5"
+                      />
+                      <line
+                        x1="24"
+                        y1="6"
+                        x2="38"
+                        y2="18"
+                        stroke="var(--card-accent)"
+                        stroke-width="1.5"
+                      />
+                      <line
+                        x1="10"
+                        y1="18"
+                        x2="38"
+                        y2="18"
+                        stroke="var(--card-accent)"
+                        stroke-width="1.5"
+                        stroke-dasharray="3 2"
+                      />
+                      <circle cx="10" cy="18" r="3" fill="var(--card-accent)" />
+                      <circle
+                        class="svg-node-pulse"
+                        cx="24"
+                        cy="6"
+                        r="3.5"
+                        fill="var(--card-accent)"
+                      />
+                      <circle cx="38" cy="18" r="3" fill="var(--card-accent)" />
+                    </svg>
+                  } @else if (idx === 2) {
+                    <svg class="metric-svg" viewBox="0 0 48 24">
+                      <rect
+                        x="6"
+                        y="13"
+                        width="5"
+                        height="9"
+                        rx="1"
+                        fill="var(--card-accent)"
+                        opacity="0.45"
+                      />
+                      <rect
+                        x="15"
+                        y="10"
+                        width="5"
+                        height="12"
+                        rx="1"
+                        fill="var(--card-accent)"
+                        opacity="0.65"
+                      />
+                      <rect
+                        x="24"
+                        y="6"
+                        width="5"
+                        height="16"
+                        rx="1"
+                        fill="var(--card-accent)"
+                        opacity="0.85"
+                      />
+                      <rect
+                        class="svg-bar-pulse"
+                        x="33"
+                        y="2"
+                        width="5"
+                        height="20"
+                        rx="1"
+                        fill="var(--card-accent)"
+                      />
+                    </svg>
+                  } @else {
+                    <svg class="metric-svg" viewBox="0 0 48 24">
+                      <path
+                        class="svg-heartbeat"
+                        d="M 2 13 L 12 13 L 16 5 L 22 20 L 27 9 L 31 13 L 46 13"
+                        fill="none"
+                        stroke="var(--card-accent)"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
                   }
                 </div>
               </div>
-
-              <div class="stat-number">
-                {{ stat.prefix }}
-                @if (stat.highlight) {
-                  <span class="highlight">{{ stat.highlight }}</span>
-                }
-                {{ stat.suffix }}
+              <div>
+                <div class="stat-label">{{ stat.label }}</div>
+                <div class="stat-sub">{{ stat.sub }}</div>
               </div>
-              <div class="stat-label">{{ stat.label }}</div>
-              <div class="stat-sub">{{ stat.sub }}</div>
-
-              <!-- Animated Progress / Load Bar at Bottom -->
               <div class="stat-meter-bar" aria-hidden="true">
-                <span class="stat-meter-fill" [style.animation-delay.ms]="idx * 350"></span>
+                <span class="stat-meter-fill"></span>
               </div>
             </div>
           }

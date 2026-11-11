@@ -3,8 +3,12 @@
     <app-section-header [heading]="heading" />
 
     <div class="os-grid">
-      @for (project of projects; track project.url) {
-        <div class="os-card" [class.featured]="project.featured">
+      @for (project of projects; track project.url; let idx = $index) {
+        <div
+          class="os-card"
+          [class.featured]="project.featured"
+          [attr.data-card-theme]="'os-' + idx"
+        >
           <div>
             <div class="os-card-header">
               <a [href]="project.url" target="_blank" rel="noopener" class="os-card-title">

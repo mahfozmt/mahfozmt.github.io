@@ -13,36 +13,39 @@ export const PROFILE: Profile = {
 };
 
 export const HERO: HeroContent = {
-  statusText: 'Available for high-impact roles',
-  locationBadge: '📍 Dhaka, Bangladesh',
-  headlineStart: 'Engineering ',
+  statusText: 'Open to Full-Stack .NET & Angular Roles',
+  locationBadge: 'Dhaka, Bangladesh',
+  headlineStart: 'Building ',
   headlineHighlight: 'Enterprise SaaS',
-  headlineEnd: ' & Cloud Systems',
-  subhead: 'Full-Stack .NET & Angular Developer · 6+ Years Experience',
+  headlineEnd: ' & Production Systems',
+  subhead: 'Full-Stack .NET & Angular Developer · 6+ Years of Experience',
   leadHtml:
-    'I specialize in architecting, building, and scaling resilient multi-tenant cloud platforms using <strong>.NET 8 / ASP.NET Core, C#, Angular, SQL Server, and Microsoft Azure</strong>. Currently driving full-stack features, security engineering (2FA, HIPAA compliance), and CI/CD pipelines for <strong>BizTRAQ</strong>, serving US enterprise clients across healthcare, logistics, and case management. I started on <strong>.NET Framework, ADO.NET, and T-SQL stored procedures</strong>, and today I use AI coding agents daily while planning, reviewing, and testing every change myself.',
+    'Full-stack .NET and Angular developer with 6+ years of experience building and supporting production software for clients in the US and Bangladesh. Started on <strong>.NET Framework, ADO.NET, and T-SQL stored procedures</strong>, and now build multi-tenant SaaS with <strong>.NET 8, Angular, SQL Server, and Microsoft Azure</strong> on <strong>BizTRAQ</strong>—taking features from database design and APIs through the user interface, CI/CD, and production support. I use AI coding agents daily to work faster, while planning, reviewing, and testing every change personally. Microsoft Certified Professional (MCP).',
   cardChips: ['.NET 8', 'C#', 'Angular', 'SQL Server', 'Azure', 'CQRS', 'T-SQL'],
   stats: [
     {
       prefix: '6',
       highlight: '+',
-      label: 'Years Production Track Record',
-      sub: 'From .NET Framework to .NET 8, Angular Signals & Azure',
+      label: 'Years of Experience',
+      sub: 'From .NET Framework & T-SQL to .NET 8, Angular & Azure',
     },
     {
-      prefix: 'BizTRAQ',
-      label: 'US Healthcare SaaS (HIPAA)',
-      sub: '2FA with lockout/cooldown, search refactor & Blazor OCR',
+      prefix: '4',
+      highlight: '+',
+      label: 'Production Platforms',
+      sub: 'BizTRAQ, LivingHub, AutoGuard Tracking & Strictly FX',
     },
     {
-      prefix: 'LivingHub',
-      label: 'Multi-Tenant Platform Co-Build',
-      sub: '.NET 6 Web API, MediatR CQRS, PostgreSQL & Hangfire',
+      prefix: 'MCP',
+      label: 'Microsoft Certified',
+      sub: 'Passed Exam 70-486: ASP.NET MVC Web Applications (score 933)',
     },
     {
-      prefix: 'Resilience',
-      label: 'Pooled DB Connection Recovery',
-      sub: 'Eliminated static DbContext pool crash in 7 controllers',
+      prefix: 'US ',
+      highlight: '&',
+      suffix: ' BD',
+      label: 'Client Delivery',
+      sub: 'Healthcare (HIPAA), fuel distribution, fleet GPS & property SaaS',
     },
   ],
 };
@@ -50,9 +53,9 @@ export const HERO: HeroContent = {
 export const CONTACT: ContactContent = {
   statusText: 'Open to Opportunities',
   headingId: 'contact-heading',
-  heading: "Let's build something exceptional together",
+  heading: "Let's discuss your next engineering role or project",
   paragraph:
-    "I am open to senior full-stack roles, contract consulting, and enterprise cloud architecture projects. Whether you need to scale an existing SaaS, migrate legacy systems to .NET 8 / Angular, or architect a brand-new cloud product from scratch—let's talk.",
+    'I am open to full-stack .NET and Angular roles, remote or hybrid opportunities, and consulting engagements. Whether you are scaling a multi-tenant SaaS on Azure, modernizing a legacy .NET Framework and T-SQL application, or shipping new product features end to end—feel free to reach out.',
   emailButtonLabel: 'Send Email Directly',
   copyButtonLabel: `Copy ${PROFILE.email}`,
   links: [
