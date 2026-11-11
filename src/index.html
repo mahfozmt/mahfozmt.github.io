@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" data-theme="dark">
+<html lang="en" data-theme="light">
 <head>
   <meta charset="utf-8">
   <base href="/">
@@ -7,7 +7,7 @@
   <title>Mahfozur Rahman | Full-Stack .NET & Angular Developer</title>
   <meta name="description" content="Mahfozur Rahman is a Full-Stack .NET & Angular Developer in Dhaka, Bangladesh. 6+ years building enterprise SaaS with C#, ASP.NET Core, Angular, SQL Server and Azure.">
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
-  <meta name="theme-color" content="#0b1220">
+  <meta name="theme-color" content="#f8fafc">
   <meta name="author" content="Mahfozur Rahman">
   <meta name="keywords" content="Mahfozur Rahman, Full-Stack .NET & Angular Developer, Full-Stack Developer, .NET Developer, Angular Developer, ASP.NET Core, Angular, C#, Azure, SQL Server, SaaS, CQRS, Docker, .NET Framework, ADO.NET, T-SQL, Stored Procedures, ASP.NET Web Forms, Windows Forms, AI-Assisted Development, Claude Code, LLM Integration, Bangladesh, Remote Developer">
   <link rel="canonical" href="https://mahfozmt.com/">
@@ -110,8 +110,7 @@
     (function() {
       try {
         var saved = localStorage.getItem("theme");
-        var prefersDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
-        var theme = saved ? saved : (prefersDark ? "dark" : "light");
+        var theme = saved === "dark" || saved === "light" ? saved : "light";
         document.documentElement.setAttribute("data-theme", theme);
       } catch (e) {}
     })();

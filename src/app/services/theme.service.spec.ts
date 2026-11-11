@@ -28,9 +28,9 @@ describe('ThemeService', () => {
     expect(TestBed.inject(ThemeService).theme()).toBe('light');
   });
 
-  it('falls back to the OS colour scheme when nothing is saved', () => {
+  it('defaults to light when the OS prefers dark and nothing is saved', () => {
     stubMatchMedia(true);
-    expect(TestBed.inject(ThemeService).theme()).toBe('dark');
+    expect(TestBed.inject(ThemeService).theme()).toBe('light');
   });
 
   it('falls back to light when the OS prefers light', () => {
@@ -42,18 +42,18 @@ describe('ThemeService', () => {
     localStorage.setItem(THEME_STORAGE_KEY, 'purple');
     stubMatchMedia(true);
 
-    expect(TestBed.inject(ThemeService).theme()).toBe('dark');
+    expect(TestBed.inject(ThemeService).theme()).toBe('light');
   });
 
   it('applies the theme to the data-theme attribute on <html>', () => {
     stubMatchMedia(true);
     const service = TestBed.inject(ThemeService);
     TestBed.tick();
-    expect(document.documentElement.getAttribute('data-theme')).toBe('dark');
+    expect(document.documentElement.getAttribute('data-theme')).toBe('light');
 
     service.toggle();
     TestBed.tick();
-    expect(document.documentElement.getAttribute('data-theme')).toBe('light');
+    expect(document.documentElement.getAttribute('data-theme')).toBe('dark');
   });
 
   it('persists the choice to localStorage when toggled', () => {
@@ -61,10 +61,10 @@ describe('ThemeService', () => {
     const service = TestBed.inject(ThemeService);
 
     service.toggle();
-    expect(localStorage.getItem(THEME_STORAGE_KEY)).toBe('light');
+    expect(localStorage.getItem(THEME_STORAGE_KEY)).toBe('dark');
 
     service.toggle();
-    expect(localStorage.getItem(THEME_STORAGE_KEY)).toBe('dark');
+    expect(localStorage.getItem(THEME_STORAGE_KEY)).toBe('light');
   });
 
   it('keeps working when localStorage is blocked', () => {
@@ -77,8 +77,8 @@ describe('ThemeService', () => {
     });
 
     const service = TestBed.inject(ThemeService);
-    expect(service.theme()).toBe('dark');
-    expect(() => service.toggle()).not.toThrow();
     expect(service.theme()).toBe('light');
+    expect(() => service.toggle()).not.toThrow();
+    expect(service.theme()).toBe('dark');
   });
 });

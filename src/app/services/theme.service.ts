@@ -14,7 +14,7 @@ function isTheme(value: unknown): value is Theme {
  * global stylesheet keys off, and persisted to localStorage when the visitor toggles it.
  *
  * The first paint is handled by a tiny inline script in index.html so there is no flash of the wrong
- * theme; this service resolves the same value (saved choice first, then the OS preference).
+ * theme; this service resolves the same value (saved choice first, then light by default).
  */
 @Injectable({ providedIn: 'root' })
 export class ThemeService {
@@ -39,9 +39,7 @@ export class ThemeService {
     if (saved) {
       return saved;
     }
-    const view = this.document.defaultView;
-    const prefersDark = view?.matchMedia?.('(prefers-color-scheme: dark)').matches ?? false;
-    return prefersDark ? 'dark' : 'light';
+    return 'light';
   }
 
   private readSavedTheme(): Theme | null {

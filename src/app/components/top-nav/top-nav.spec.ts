@@ -62,27 +62,28 @@ describe('TopNav', () => {
   describe('theme toggle', () => {
     it('switches the data-theme attribute and remembers the choice', async () => {
       const button = query<HTMLButtonElement>('#themeToggleBtn');
-      expect(document.documentElement.getAttribute('data-theme')).toBe('dark');
-
-      button.click();
-      await fixture.whenStable();
       expect(document.documentElement.getAttribute('data-theme')).toBe('light');
-      expect(localStorage.getItem(THEME_STORAGE_KEY)).toBe('light');
 
       button.click();
       await fixture.whenStable();
       expect(document.documentElement.getAttribute('data-theme')).toBe('dark');
       expect(localStorage.getItem(THEME_STORAGE_KEY)).toBe('dark');
+
+      button.click();
+      await fixture.whenStable();
+      expect(document.documentElement.getAttribute('data-theme')).toBe('light');
+      expect(localStorage.getItem(THEME_STORAGE_KEY)).toBe('light');
     });
 
     it('shows a sun in dark mode and a moon in light mode', async () => {
       const icon = query<SVGElement>('#themeIcon');
-      expect(icon.querySelector('circle')).not.toBeNull();
+      expect(icon.querySelector('circle')).toBeNull();
+      expect(icon.querySelector('path')).not.toBeNull();
 
       query<HTMLButtonElement>('#themeToggleBtn').click();
       await fixture.whenStable();
-      expect(icon.querySelector('circle')).toBeNull();
-      expect(icon.querySelector('path')).not.toBeNull();
+      expect(icon.querySelector('circle')).not.toBeNull();
+      expect(icon.querySelector('path')).toBeNull();
     });
   });
 
