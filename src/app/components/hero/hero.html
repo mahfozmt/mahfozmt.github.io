@@ -210,7 +210,12 @@
                   }
                   {{ stat.suffix }}
                 </div>
-                <div class="stat-graphic" aria-hidden="true">
+                <div
+                  class="stat-graphic"
+                  [class.stat-graphic-cert]="idx === 2"
+                  [class.stat-graphic-flags]="idx === 3"
+                  aria-hidden="true"
+                >
                   @if (idx === 0) {
                     <svg class="metric-svg" viewBox="0 0 48 24">
                       <polyline
@@ -266,55 +271,54 @@
                       <circle cx="38" cy="18" r="3" fill="var(--card-accent)" />
                     </svg>
                   } @else if (idx === 2) {
-                    <svg class="metric-svg" viewBox="0 0 48 24">
-                      <rect
-                        x="6"
-                        y="13"
-                        width="5"
-                        height="9"
-                        rx="1"
-                        fill="var(--card-accent)"
-                        opacity="0.45"
-                      />
-                      <rect
-                        x="15"
-                        y="10"
-                        width="5"
-                        height="12"
-                        rx="1"
-                        fill="var(--card-accent)"
-                        opacity="0.65"
-                      />
-                      <rect
-                        x="24"
-                        y="6"
-                        width="5"
-                        height="16"
-                        rx="1"
-                        fill="var(--card-accent)"
-                        opacity="0.85"
-                      />
-                      <rect
-                        class="svg-bar-pulse"
-                        x="33"
-                        y="2"
-                        width="5"
-                        height="20"
-                        rx="1"
-                        fill="var(--card-accent)"
-                      />
-                    </svg>
+                    <img
+                      class="metric-svg metric-cert"
+                      src="/ms-exam-486-badge.png"
+                      alt=""
+                      width="44"
+                      height="44"
+                      decoding="async"
+                    />
                   } @else {
-                    <svg class="metric-svg" viewBox="0 0 48 24">
-                      <path
-                        class="svg-heartbeat"
-                        d="M 2 13 L 12 13 L 16 5 L 22 20 L 27 9 L 31 13 L 46 13"
-                        fill="none"
-                        stroke="var(--card-accent)"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                      />
+                    <svg class="metric-svg metric-flags" viewBox="0 0 60 24">
+                      <g transform="translate(2 3)">
+                        <rect width="26" height="18" rx="2" fill="#fff" />
+                        <path
+                          d="M0 0h26v2H0zM0 4h26v2H0zM0 8h26v2H0zM0 12h26v2H0zM0 16h26v2H0z"
+                          fill="#b91c1c"
+                        />
+                        <path d="M0 0h11v9H0z" fill="#1e3a8a" />
+                        <g fill="#fff">
+                          <circle cx="2.5" cy="2" r=".65" />
+                          <circle cx="5.5" cy="2" r=".65" />
+                          <circle cx="8.5" cy="2" r=".65" />
+                          <circle cx="4" cy="5" r=".65" />
+                          <circle cx="7" cy="5" r=".65" />
+                          <circle cx="2.5" cy="8" r=".65" />
+                          <circle cx="5.5" cy="8" r=".65" />
+                          <circle cx="8.5" cy="8" r=".65" />
+                        </g>
+                        <rect
+                          width="26"
+                          height="18"
+                          rx="2"
+                          fill="none"
+                          stroke="var(--card-accent)"
+                          stroke-opacity=".5"
+                        />
+                      </g>
+                      <g transform="translate(32 3)">
+                        <rect width="26" height="18" rx="2" fill="#006a4e" />
+                        <circle cx="14" cy="9" r="5" fill="#f42a41" />
+                        <rect
+                          width="26"
+                          height="18"
+                          rx="2"
+                          fill="none"
+                          stroke="var(--card-accent)"
+                          stroke-opacity=".5"
+                        />
+                      </g>
                     </svg>
                   }
                 </div>

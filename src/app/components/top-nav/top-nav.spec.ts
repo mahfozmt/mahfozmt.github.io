@@ -36,6 +36,10 @@ describe('TopNav', () => {
   });
 
   describe('links', () => {
+    it('uses the site favicon as the brand mark', () => {
+      expect(query<HTMLImageElement>('.brand-icon').getAttribute('src')).toBe('/favicon.svg');
+    });
+
     it('renders a desktop and a mobile link for every section', () => {
       const desktop = Array.from(root.querySelectorAll('nav.desktop-nav a')).map((a) =>
         a.getAttribute('href'),
